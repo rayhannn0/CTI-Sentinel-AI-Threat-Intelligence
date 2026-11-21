@@ -68,7 +68,7 @@ def benchmark_data():
 
 
 @app.get('/')
-def index(): return FileResponse(ROOT / 'static/index.html')
+def index(): return FileResponse(ROOT / 'static/dashboard.html', headers={'Cache-Control':'no-store, max-age=0'})
 
 
 @app.get('/api/labs')
@@ -816,6 +816,12 @@ def lab18_analytics(source: str = Query('all', max_length=64), community: str = 
 # Add-on: Appendix A AI Threat Advisor
 from advisor import router as advisor_router
 app.include_router(advisor_router)
+
+
+# Unified navigation landing page (keeps every existing lab and advisor route).
+@app.get('/dashboard')
+def main_dashboard_page():
+    return FileResponse(ROOT / 'static/dashboard.html', headers={'Cache-Control':'no-store, max-age=0'})
 
 if __name__ == '__main__':
     import uvicorn
