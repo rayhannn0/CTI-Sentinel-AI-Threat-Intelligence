@@ -1,0 +1,1 @@
+Lab 16-only dashboard patch. Start Lab 16 Docker stack first. Database queries are executed through the existing lab16_polyglot-app-1 Docker container. Circuit-breaker test injects safe synthetic errors into the actual class; it does not shut down databases. Preserve existing Lab 11-15 interfaces.

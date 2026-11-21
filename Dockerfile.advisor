@@ -1,0 +1,8 @@
+FROM python:3.12-slim
+WORKDIR /app
+COPY advisor_requirements.txt .
+RUN pip install --no-cache-dir -r advisor_requirements.txt
+COPY advisor.py advisor_standalone.py ./
+COPY static/advisor.html static/advisor.css static/advisor.js ./static/
+EXPOSE 8877
+CMD ["uvicorn","advisor_standalone:app","--host","0.0.0.0","--port","8877"]

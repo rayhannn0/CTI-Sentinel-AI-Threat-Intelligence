@@ -1,0 +1,30 @@
+# Optional standalone container demo on http://localhost:8877/advisor.
+# The main CTI Sentinel site remains at http://localhost:8765/advisor.
+services:
+  advisor:
+    build:
+      context: .
+      dockerfile: Dockerfile.advisor
+    ports:
+      - "127.0.0.1:8877:8877"
+    environment:
+      ADVISOR_MONGO_URI: mongodb://mongo:27017
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      GEMINI_MODEL: ${GEMINI_MODEL:-gemini-2.5-flash}
+    depends_on:
+      mongo:
+        condition: service_healthy
+    restart: unless-stopped
+  mongo:
+    image: mongo:7
+    # No host port exposure. Separate datastore for optional container demo.
+    volumes:
+      - advisor_mongo:/data/db
+    healthcheck:
+      test: ["CMD","mongosh","--quiet","--eval","db.adminCommand({ping:1}).ok"]
+      interval: 15s
+      timeout: 5s
+      retries: 15
+    restart: unless-stopped
+volumes:
+  advisor_mongo:

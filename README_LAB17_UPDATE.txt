@@ -1,0 +1,1 @@
+CTI Sentinel Lab 17-only patch. Stop website and unzip over ~/Downloads. Restart website. Run Lab 17 Docker Compose if necessary. Seed documents, search passages, ask RAG, run measured local FAISS HNSW vs IVF benchmark. Real data only; no simulated scores. Existing Labs 11–16 retained.

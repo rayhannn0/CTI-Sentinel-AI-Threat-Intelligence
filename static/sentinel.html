@@ -1,0 +1,162 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>CTI Sentinel · Labs 01–18</title><link rel="stylesheet" href="/static/sentinel.css?v=lab13-20261121c"><link rel="stylesheet" href="/static/lab12.css?v=lab13-20261121c"><link rel="stylesheet" href="/static/lab13.css?v=lab14-20261122a"><link rel="stylesheet" href="/static/lab14.css?v=lab14-20261122a"><link rel="stylesheet" href="/static/lab15.css?v=lab15-20261122b"><link rel="stylesheet" href="/static/lab16.css?v=lab16-20261122a"><link rel="stylesheet" href="/static/lab17.css?v=lab17-20261122b"><link rel="stylesheet" href="/static/lab18.css?v=lab18-20261122f"></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">S<span>✦</span></div><div><strong>CTI SENTINEL</strong><small>NO/SQL · LIVE ASSESSMENT</small></div></div><div class="side-label">PROJECT CONSOLE</div><button class="nav-item" id="overviewBtn"><span>◈</span> Overview & Threat Feed</button><div class="side-label">18 LAB MODULES</div><div class="side-scroll" id="sideLabs"></div><div class="side-bottom"><i></i><span id="connection">Checking database…</span><small>Local MongoDB · Real operations</small></div></aside>
+<main class="main"><header class="topbar"><div><span class="mini-eyebrow">NO/SQL DATABASE ENGINEERING</span><h1>CTI Sentinel <em>Live Lab Console</em></h1><p>Interactive MongoDB experiments, transactional workflows, live threat data and comparative analytics.</p></div><div class="top-actions"><a class="pill green" href="/advisor" style="text-decoration:none">◈ AI Threat Advisor · FINAL ASSESSMENT</a><span class="pill violet">CTI Sentinel Lab Assessment</span><span class="pill green">Labs 01–18 Interactive Telemetry</span></div></header>
+<div class="main-scroll"><section class="stats"><div class="stat"><span>LABORATORIES</span><strong>18</strong><small>Interactive modules</small></div><div class="stat"><span>REPLICA SET</span><strong id="replicaStatus">CHECKING</strong><small id="replicaName">MongoDB transaction support</small></div><div class="stat"><span>AUDIT EVENTS</span><strong id="txCount">—</strong><small>Real database records</small></div><div class="stat"><span>ACTIVE DATA SOURCE</span><strong class="small-stat" id="dbStatus">CONNECTING</strong><small>Private local Docker database</small></div></section>
+<nav class="chapters" id="chapters"><button data-group="overview">1. Overview & Threat Feed</button><button data-group="1-6">2. Labs 1–6: Schema & Indexes</button><button data-group="7">3. Lab 7: BSON & Cache</button><button data-group="8">4. Lab 8: Replica Set rs0</button><button data-group="9">5. Lab 9: Docker & CAP</button><button class="selected" data-group="10-18">6. Labs 10–18: ACID, Sharding, Security, K8s, RAG & Threats <b>NEW</b></button></nav>
+<section class="hero-section"><div class="section-eyebrow" id="sectionTag">LAB 10.1 · DATABASE TRANSACTIONS</div><div class="section-head"><div><h2 id="sectionTitle">Multi-Document ACID Bank Transfer</h2><p id="sectionDesc">Execute debit, credit, and audit records inside a single MongoDB transaction.</p></div><a id="reference" target="_blank" rel="noopener noreferrer" href="https://github.com/sujeetjagtap/NoSQL-Databases-using-MongoDB/tree/main/chapter-10">Reference chapter ↗</a></div>
+<div id="bankView" class="module"><div class="bank-frame"><div class="bank-main"><div class="bank-title"><div><h3>Lab 10.1: Multi-Document ACID Bank Transfer</h3><p>Real <code>session.with_transaction()</code> · both balances update together or neither does</p></div><button id="resetBank" class="subtle">↻ Reset Balances</button></div><div class="account-grid"><div class="account"><span>SOURCE ACCOUNT</span><div class="account-row"><strong>ACC-1001</strong><b id="balanceA">$—</b></div><small>version: <span id="versionA">—</span></small></div><div class="account"><span>DESTINATION ACCOUNT</span><div class="account-row"><strong>ACC-1002</strong><b id="balanceB">$—</b></div><small>version: <span id="versionB">—</span></small></div></div><div class="action-bar"><label>Amount ($) <input id="amount" type="number" min="0.01" max="100000" step="0.01" value="250"/></label><button class="btn success" id="validTransfer">Execute Valid Transfer</button><button class="btn danger" id="failureTransfer">Test Insufficient Funds ($2,000)</button></div><div class="action-bar second"><button class="btn orange" id="rollbackTransfer">Simulate Error → Verify Atomic Rollback</button><button class="btn subtle" id="refreshBank">↻ Refresh</button></div><div class="terminal" id="terminal"><span>[Session]</span> Ready · initialize accounts and execute a real transaction.</div><div id="bankWarning" class="warning hidden"></div></div><div class="audit"><div class="audit-head"><h3>transfer_history Audit Log</h3><span id="historyCount">0 txns</span></div><p>Committed transfers and separately logged aborted attempts. No partial balance mutations on rollback.</p><div id="auditRows" class="audit-rows"><div class="empty">No transfers executed yet.</div></div></div></div><div class="below"><div class="mini-panel"><span class="section-eyebrow">LAB 10.2 · REAL-TIME INVENTORY</span><h3>Atomic GPU Stock Reservation</h3><p>Reserve stock with a conditional MongoDB update, rejecting requests when stock is insufficient.</p><div class="inline"><input type="number" id="gpuQty" value="1" min="1" max="100"/><button class="btn purple" id="reserveGpu">Reserve GPUs</button><button class="btn subtle" id="initGpu">Initialize inventory</button></div><div class="mini-result" id="gpuResult">Ready to reserve.</div></div><div class="mini-panel"><span class="section-eyebrow">LIVE DIAGNOSTICS</span><h3>Replica & Transaction Details</h3><div class="diag" id="diagnostics">Checking MongoDB…</div><p class="fine">A single-node replica set supports real ACID transactions, but not multi-node failover.</p></div></div></div>
+<div id="lab11View" class="module hidden"><section class="shard-module">
+  <div class="shard-topline"><div class="shard-tag">LAB 11 · INTERACTIVE SHARDING MODEL</div><span class="shard-source">◈ Live cluster or clearly labeled simulation</span></div>
+  <h3 class="shard-heading">Horizontal Sharding, Shard Key Cardinality &amp; Chunk Distribution</h3>
+  <p class="shard-description">Explore how a shard key changes document balance, insert hotspots and targeted versus scatter-gather routing. Choose LIVE for measured stats from mongos (2 actual shards), or MODEL for a three-shard simulation.</p>
+  <div class="shard-toolbar"><label class="shard-selector-label" for="shardKey">Shard key strategy</label><select id="shardKey" class="shard-select"><option value="live_even">LIVE mongos: { user_id: 'hashed' } — lab11.even_data</option><option value="live_hotspot">LIVE mongos: { ts: 1 } — lab11.hotspot_data</option><option value="hashed_tenant">{ tenant_id: 'hashed' } — balanced tenants</option><option value="hashed_customer">{ customer_id: 'hashed' } — balanced customer writes</option><option value="ranged_customer">{ customer_id: 1 } — ranged customer IDs</option><option value="ranged_date">{ order_date: 1 } — monotonic date hotspot</option></select><button id="analyzeShards" class="shard-analyze">▶ Analyze Shard Routing</button></div>
+  <div class="shard-meta"><span>DATASET <strong>100,000 modeled orders</strong></span><span>MODELED SHARDS <strong>3</strong></span><span id="shardModelState">READY TO ANALYZE</span></div>
+  <div class="shard-cards" id="shardCards"><div class="shard-placeholder">Choose a shard key and press <strong>Analyze Shard Routing</strong> to calculate the distribution.</div></div>
+  <div id="shardInsight" class="shard-insight" aria-live="polite"><span class="insight-icon">ⓘ</span><span>Distribution and hotspot analysis will appear here after you run the model.</span></div>
+  <div class="shard-queries"><div class="shard-queries-head"><div><h4>Query routing explorer</h4><p>Test the selected key against equality and range query patterns.</p></div><span class="model-pill">ANALYTICAL MODEL</span></div><div class="query-row"><label>Query type <select id="shardQuery"><option value="equality">Equality: shard key = value</option><option value="range">Range: shard key between values</option><option value="other">Query without shard key</option></select></label><button id="routeShard" class="shard-route">Test Query Routing</button></div><div id="shardRouteOutput" class="shard-route-output">Choose a query and run routing analysis.</div></div>
+  <div class="shard-legend"><b>Lab 11.1:</b> Compare cardinality, distribution and query targeting. <b>Lab 11.2:</b> Inspect hotspot effects from increasing timestamps versus hashed keys. <strong>Actual MongoDB chunk statistics require a separate sharded cluster with mongos.</strong></div>
+</section></div>
+
+<div id="lab12View" class="module hidden">
+  <section class="lab12-frame">
+   <div class="lab12-upper"><span class="lab12-pill">LAB 12 · LIVE LAPTOP ANALYSIS</span><span class="lab12-live">● REAL MONGODB $jsonSchema · PORT 27022</span></div>
+   <h3>JSON Schema Validation ($jsonSchema) &amp; Data Governance</h3>
+   <p>Validates BSON types, email regex, age bounds (18–120), and severity enums before committing to an isolated MongoDB collection.</p>
+   <form id="lab12Form" class="lab12-inputs">
+     <label>Email address<input id="lab12Email" type="text" value="analyst@example.com" maxlength="180" autocomplete="off" required></label>
+     <label>Age<input id="lab12Age" type="number" value="22" min="-200" max="500" required></label>
+     <label>Severity<select id="lab12Severity"><option value="HIGH">HIGH (Valid Enum)</option><option value="MEDIUM">MEDIUM</option><option value="LOW">LOW</option><option value="CRITICAL">CRITICAL</option><option value="INVALID">INVALID — rejection test</option></select></label>
+     <button type="submit" id="lab12Run" class="lab12-submit">▶ Run Schema Validation</button>
+   </form>
+   <div class="lab12-checks" aria-live="polite">
+      <div class="lab12-check" id="lab12EmailStatus"><span>EMAIL BSON PATTERN</span><strong>READY</strong></div>
+      <div class="lab12-check" id="lab12AgeStatus"><span>AGE BOUNDS (18–120)</span><strong>READY</strong></div>
+      <div class="lab12-check" id="lab12SeverityStatus"><span>SEVERITY ENUM</span><strong>READY</strong></div>
+      <div class="lab12-check" id="lab12MongoStatus"><span>MONGODB ACTION</span><strong>NOT SUBMITTED</strong></div>
+   </div>
+   <div class="lab12-message" id="lab12Message" role="status">[Ready] Enter document values and click Run Schema Validation. Invalid inputs are rejected by MongoDB.</div>
+  </section>
+  <section class="lab12-record-panel"><div class="lab12-record-head"><div><h3>Stored validation records</h3><p>Read-only view of the isolated <code>lab12_ui_validation.security_events</code> collection. No changes to Lab 11 data.</p></div><button class="lab12-refresh" id="lab12Refresh">↻ Refresh</button></div><div id="lab12Records" class="lab12-record-table">Select Refresh to inspect saved records.</div></section>
+  <section class="lab12-explain"><h3>Lab 12.1 · Real validation versus RBAC and TLS</h3><p>This panel enforces MongoDB <code>$jsonSchema</code> on a dedicated teaching collection. Authentication, least-privilege role tests and TLS are separate Lab 12 exercises and are <strong>not</strong> claimed as active here.</p><div id="lab12ExtraActions" class="lab12-extra-actions"></div><pre id="lab12ExtraResult" class="lab12-extra-output">Select an inspection action to see the connected database's real configuration.</pre></section>
+</div>
+
+<div id="lab13View" class="module hidden">
+ <section class="lab13-frame">
+  <div class="lab13-head"><span class="lab13-tag">LAB 13 · LIVE SECURITY WORKBENCH</span><span class="lab13-source">● MONGODB VIEW · REAL PROJECTION</span></div>
+  <h3>Security Hardening, Least-Privilege RBAC &amp; Field-Level Data Protection</h3>
+  <p>Explore how a MongoDB projection view hides sensitive fields and how different application roles can see different results. The view is real; role choices are a teaching preview, not authenticated database users or CSFLE.</p>
+  <div class="lab13-toolbar"><label>Role projection<select id="lab13Role"><option value="analyst">readOnlyAnalyst — sensitive fields hidden</option><option value="auditor">complianceAuditor — audit metadata shown</option><option value="admin">securityAdmin — view comparison (masked values)</option></select></label><button id="lab13Inspect" class="lab13-action">▶ Inspect Role Projection</button><button id="lab13WriteTest" class="lab13-alt">Test Read-Only View</button></div>
+  <div class="lab13-badges"><span id="lab13MongoStatus">DATA SOURCE · CHECKING</span><span id="lab13ViewStatus">PROJECTION · CHECKING</span><span>SAFE DEMO DATA</span></div>
+  <div class="lab13-table-wrap"><table><thead><tr><th>ANALYST ID</th><th>NAME</th><th>CLEARANCE</th><th>GOV ID FIELD</th><th>API TOKEN FIELD</th></tr></thead><tbody id="lab13Rows"><tr><td colspan="5">Click Inspect Role Projection to load MongoDB records.</td></tr></tbody></table></div>
+  <div id="lab13Result" class="lab13-result" aria-live="polite">[Ready] Compare projections with the role dropdown. All displayed analyst records are synthetic.</div>
+  <div class="lab13-info"><strong>Security scope:</strong> MongoDB enforces a read-only view that excludes sensitive columns. This demo does not set up authenticated RBAC roles, TLS, or client-side field-level encryption (CSFLE). The role selector is an application-side training preview; do not treat it as an access control boundary.</div>
+ </section>
+ <section class="lab13-extras"><h3>Lab 13 · Original production-deployment diagnostics</h3><p>Your original Lab 13 Docker replica set and Kubernetes readiness exercises remain available here.</p><div id="lab13ExtraActions" class="lab13-extra-actions"></div><pre id="lab13ExtraResult" class="lab13-extra-result">Choose an infrastructure diagnostic to inspect the local environment.</pre></section>
+</div>
+<div id="lab14View" class="module hidden">
+ <section class="lab14-frame">
+   <div class="lab14-head"><span class="lab14-tag">LAB 14 · LIVE LAPTOP ANALYSIS</span><span class="lab14-source">● LIVE MONGODB serverStatus</span></div>
+   <h3>Observability (serverStatus), Webhook Threshold Alerts &amp; Backup RPO/RTO</h3>
+   <p>Inspect actual MongoDB serverStatus counters, compare a derived cache proxy with a configurable threshold and explore backup recovery trade-offs.</p>
+   <div class="lab14-toolbar"><label>Cache Hit SLA Threshold (%)<input id="lab14Threshold" type="number" min="1" max="100" value="80" step="1"></label><button id="lab14Evaluate" class="lab14-primary">▶ Evaluate Live Telemetry &amp; SLA</button><button id="lab14Refresh" class="lab14-secondary">↻ Refresh</button></div>
+   <div class="lab14-metrics">
+     <div class="lab14-metric"><span>ACTIVE CONNECTIONS</span><strong id="lab14Connections">—</strong><small id="lab14ConnectionNote">Waiting for live serverStatus</small></div>
+     <div class="lab14-metric"><span>WIREDTIGER CACHE HIT PROXY</span><strong id="lab14Hit">—</strong><small>Cumulative page-counter estimate; not measured SLA</small></div>
+     <div class="lab14-metric"><span>SLA THRESHOLD</span><strong id="lab14Sla">80%</strong><small id="lab14SlaNote">Run evaluation to compare proxy</small></div>
+     <div class="lab14-metric"><span>ALERT EVALUATION</span><strong id="lab14Alert">READY</strong><small>On-page local alert only; no webhook configured</small></div>
+   </div>
+   <div class="lab14-live-result" id="lab14Result" role="status">[Ready] Click Evaluate Live Telemetry &amp; SLA for real MongoDB counters.</div>
+   <div class="lab14-backup-heading"><h4>Backup strategy · RPO / RTO comparison</h4><span>REFERENCE COMPARISON · NOT MEASURED</span></div>
+   <div class="lab14-table"><table><thead><tr><th>BACKUP STRATEGY</th><th>RPO (DATA LOSS WINDOW)</th><th>RTO (RESTORE SPEED)</th><th>PRODUCTION USE CASE</th></tr></thead><tbody>
+   <tr><td>mongodump / mongorestore</td><td>Depends on backup schedule</td><td>Depends on data volume and indexes</td><td>Logical backups and small datasets</td></tr>
+   <tr><td>Filesystem / EBS snapshots</td><td>Depends on snapshot frequency</td><td>Often faster volume restoration</td><td>Large, stateful databases</td></tr>
+   <tr><td>Continuous oplog PITR</td><td>Potentially seconds with correct retention</td><td>Snapshot + oplog replay required</td><td>Strict recovery objectives</td></tr></tbody></table></div>
+ </section>
+ <section class="lab14-extras"><h3>Lab 14.2 · Safe demo snapshot and integrity verification</h3><p>Creates a JSON snapshot of synthetic records in an isolated <code>lab14_monitoring_demo</code> database. This does not alter your other labs or perform a destructive restore.</p><div class="lab14-buttons"><button id="lab14Backup">Create demo JSON snapshot</button><button id="lab14Verify">Verify latest snapshot</button></div><pre id="lab14BackupResult">[Ready] Create a JSON snapshot to test local backup-file integrity.</pre></section>
+ <section class="lab14-extras"><h3>Original Lab 14 monitoring / backup experiments</h3><div id="lab14ExtraActions" class="lab14-buttons"></div><pre id="lab14ExtraResult">Original Lab 14 actions remain available.</pre></section>
+</div>
+<div id="lab15View" class="module hidden">
+ <section class="lab15-frame">
+  <div class="lab15-head"><span class="lab15-pill">LAB 15 · LIVE SAAS TENANT ANALYSIS</span><span class="lab15-live">● REAL MONGODB · 5 TENANTS</span></div>
+  <h3>Multi-Tenant SaaS Isolation, TTL Rate Limiting &amp; Zero-Downtime Migration</h3>
+  <p>Compare document-level shared collections with collection-per-tenant isolation, create tasks, inspect live tenant counts and benchmark local queries.</p>
+  <div class="lab15-toolbar"><label>Isolation strategy<select id="lab15Strategy"><option value="shared">Shared Pool · document-level isolation</option><option value="isolated">Collection per tenant · separate namespace</option></select></label><label>Tenant<select id="lab15Tenant"><option value="tenantAlpha">tenantAlpha</option><option value="tenantBeta">tenantBeta</option><option value="tenantGamma">tenantGamma</option><option value="tenantDelta">tenantDelta</option><option value="tenantEpsilon">tenantEpsilon</option></select></label></div>
+  <div class="lab15-toolbar"><label class="lab15-task-field">New task title<input id="lab15Title" maxlength="140" value="Investigate security events" placeholder="Enter a new tenant task"></label><label>Priority<select id="lab15Priority"><option value="medium">Medium</option><option value="high">High</option><option value="low">Low</option></select></label><button id="lab15Create" class="lab15-primary">＋ Create Tenant Task</button></div>
+  <div class="lab15-metrics"><div><span>ISOLATION STRATEGY</span><strong id="lab15Type">Shared Pool</strong><small>Tenant filter on every pool read</small></div><div><span>TARGET NAMESPACE</span><strong id="lab15Namespace">—</strong><small>Real MongoDB demo database</small></div><div><span>TASKS FOR SELECTED TENANT</span><strong id="lab15Count">—</strong><small id="lab15Other">—</small></div><div><span>AVG / MEDIAN QUERY LATENCY</span><strong id="lab15Latency">—</strong><small>Measured locally on request</small></div></div>
+  <div class="lab15-actions"><button id="lab15Seed">Seed 5 tenants × 100 tasks</button><button id="lab15Migrate">Migrate to separate collections</button><button id="lab15Compare">Benchmark both strategies</button><button id="lab15Refresh">↻ Refresh tenant data</button></div>
+  <div id="lab15Message" class="lab15-message" role="status">[Ready] Select tenant and create a task, or seed the dataset for comparison.</div>
+  <div class="lab15-task-head"><h4>Live tenant task board</h4><span id="lab15TaskSource">MongoDB tenant-scoped query</span></div>
+  <div class="lab15-table-scroll"><table><thead><tr><th>TASK ID</th><th>TITLE</th><th>TENANT</th><th>PRIORITY</th><th>STATUS</th></tr></thead><tbody id="lab15Rows"><tr><td colspan="5">Select a tenant to load tasks.</td></tr></tbody></table></div>
+ </section>
+ <section class="lab15-extras"><h3>Lab 15.1 · TTL rate-limit demonstration</h3><p>Task creation increments a real MongoDB per-tenant counter and blocks creates after 5 requests per one-minute window. A TTL index expires old counters asynchronously. This is not JWT authentication or production-grade RBAC.</p><div id="lab15Rate" class="lab15-rate">Rate counter updates when you create a task.</div></section>
+ <section class="lab15-extras"><h3>Original Lab 15 activities</h3><p>Keep the existing scripts and migration tests accessible below the visual model.</p><div id="lab15ExtraActions" class="lab15-actions"></div><pre id="lab15ExtraResult">[Ready] Run an existing Lab 15 experiment.</pre></section>
+</div>
+
+<div id="lab16View" class="module hidden">
+ <section class="lab16-frame">
+  <div class="lab16-top"><span class="lab16-tag">LAB 16 · LIVE POLYGLOT ANALYSIS</span><span class="lab16-source">MongoDB + Cassandra + Neo4j · Lab 16 Docker</span></div>
+  <h3>Polyglot Persistence (MongoDB + Cassandra + Neo4j) &amp; FraudQueryService</h3>
+  <p>Analyze a stored transaction in MongoDB, recent events in Cassandra, and connected accounts in Neo4j. Errors are shown instead of fabricated results.</p>
+  <div class="lab16-toolbar"><label>Transaction<select id="lab16Txn"><option value="">Checking Lab 16 database…</option></select></label><button id="lab16Run" class="lab16-run">▶ Run Polyglot FraudQueryService</button><button id="lab16Circuit" class="lab16-circuit">⚡ Simulate 3-Strike Circuit Breaker</button></div>
+  <div class="lab16-grid">
+   <article class="lab16-card mongo"><div class="lab16-card-title">1. MONGODB (OLTP PROFILE) <span id="lab16MongoState">WAITING</span></div><strong id="lab16MongoMain">Select transaction</strong><p id="lab16MongoDetails">Live document lookup from Lab 16 MongoDB</p><small id="lab16MongoLatency">—</small></article>
+   <article class="lab16-card cassandra"><div class="lab16-card-title">2. CASSANDRA (VELOCITY SERIES) <span id="lab16CassandraState">WAITING</span></div><strong id="lab16CassandraMain">Select transaction</strong><p id="lab16CassandraDetails">Live time-ordered event lookup</p><small id="lab16CassandraLatency">—</small></article>
+   <article class="lab16-card neo4j"><div class="lab16-card-title">3. NEO4J (GRAPH CONNECTIONS) <span id="lab16Neo4jState">WAITING</span></div><strong id="lab16Neo4jMain">Select transaction</strong><p id="lab16Neo4jDetails">Live linked accounts (up to 2 hops)</p><small id="lab16Neo4jLatency">—</small></article>
+  </div>
+  <div class="lab16-verdict"><span>REPORTED RISK SCORE</span><strong id="lab16Risk">—</strong><span id="lab16Verdict">No analysis performed</span></div>
+  <div class="lab16-log" id="lab16Log" aria-live="polite">[Ready] Checking existing lab16_polyglot Docker application. Seeded transactions are tx100, tx101 and tx102.</div>
+  <p class="lab16-note">Live results require the existing <code>lab16_polyglot-app-1</code> container and all three database services. The circuit-breaker button demonstrates the real Lab 16 CircuitBreaker class with injected test errors; it does not disconnect Neo4j or modify stored records. Risk classification is a teaching threshold based on the stored risk_score, not a production fraud verdict.</p>
+ </section>
+ <section class="lab16-legacy"><h3>Lab 16 · Original laboratory actions</h3><p>Existing diagnostic actions remain available.</p><div id="lab16ExtraActions" class="experiment-actions"></div><pre id="lab16ExtraResult" class="lab16-log">Choose an original action to run.</pre></section>
+</div>
+
+
+<div id="lab17View" class="module hidden">
+ <section class="lab17-frame">
+  <div class="lab17-header"><span class="lab17-tag">LAB 17 · LIVE VECTOR RAG ANALYSIS</span><span class="lab17-source">Lab 17 Docker · MongoDB + local retrieval</span></div>
+  <h3>Vector Search RAG Pipeline (Top-3 Retrieval + Memory) &amp; HNSW vs. IVF Benchmarks</h3>
+  <p>Retrieve the three most relevant stored threat-intelligence passages and compare measured local FAISS HNSW/IVF search performance. Actual scores and benchmark results only.</p>
+  <div class="lab17-toolbar">
+   <label class="lab17-querylabel">Security question<input id="lab17Query" value="How can defenders reduce ransomware risk and detect phishing?" placeholder="Ask about threat intelligence…"></label>
+   <button id="lab17Search" class="lab17-search">⌕ Search Top 3</button>
+   <button id="lab17Answer" class="lab17-answer">↗ Ask RAG with Memory</button>
+   <button id="lab17Seed" class="lab17-seed">Seed Lab 17 Documents</button>
+  </div>
+  <div class="lab17-meta" id="lab17Source">Checking live Lab 17 Docker application…</div>
+  <div class="lab17-results" id="lab17Results"><div class="lab17-empty">Select Seed Documents if the Lab 17 database is empty, then search.</div></div>
+  <div class="lab17-response"><div class="lab17-section-title">Retrieved answer / conversational memory</div><pre id="lab17Response">[Ready] Search passages or ask the RAG assistant. Without a configured LLM API, the Lab 17 code returns extractive context and labels it accordingly.</pre></div>
+  <div class="lab17-bench-head"><div><h4>HNSW vs. IVF · Latency and Recall</h4><p>FAISS local benchmark of synthetic 384-dimensional vectors, not native MongoDB Atlas IVF.</p></div><button id="lab17Benchmark" class="lab17-benchmark">▶ Run Measured Benchmark</button></div>
+  <div class="lab17-table-scroll"><table class="lab17-table"><thead><tr><th>INDEX CONFIG</th><th>AVERAGE QUERY LATENCY</th><th>RECALL@20</th><th>BUILD TIME</th></tr></thead><tbody id="lab17BenchRows"><tr><td colspan="4">No benchmark loaded yet.</td></tr></tbody></table></div>
+  <div class="lab17-log" id="lab17Log">[Ready] The server checks the running Lab 17 Docker container and reports any missing prerequisites.</div>
+ </section>
+ <section class="lab17-legacy"><h3>Lab 17 · Original activities</h3><p>Original MongoDB/RAG experiments are still available below this interactive model.</p><div id="lab17ExtraActions" class="experiment-actions"></div><pre id="lab17ExtraResult" class="lab17-log">Choose an original lab action.</pre></section>
+</div>
+
+
+<div id="lab18View" class="module hidden">
+ <section class="lab18-frame">
+  <div class="lab18-header"><span class="lab18-chip">LAB 18 CAPSTONE · LIVE LAPTOP ANALYSIS</span><span class="lab18-source" id="lab18SourceStatus">● CHECKING LAB 18 MONGODB</span></div>
+  <h3>False-Positive Threat Detection <span>(100K Records, 10-Run Medians &amp; 1M–100M Scale)</span></h3>
+  <p class="lab18-desc">Explore synthetic threats in <code>threat_intel.full_threats</code>, filter heuristic false-positive labels, review stored database benchmarks, and compare illustrative horizontal-scaling plans.</p>
+  <div class="lab18-controls">
+   <label>Source Feed <select id="lab18Source"><option value="all">ALL SOURCES</option></select></label>
+   <label>False-Positive Filter <select id="lab18Community"><option value="all">ALL THREATS</option><option value="flagged">FLAGGED FALSE-POSITIVE CANDIDATES</option><option value="other">OTHER THREATS</option></select></label>
+   <label>Scale Blueprint <select id="lab18Scale"><option value="1">1M Records</option><option value="10">10M Records</option><option value="100" selected>100M Records</option></select></label>
+  </div>
+  <div class="lab18-run"><button id="lab18Analyze" type="button">▶ Analyze 100K Dataset</button><small id="lab18Scope">Actual counts from Lab 18 MongoDB · Estimated scaling is clearly labeled</small></div>
+  <div class="lab18-kpis">
+   <div><span>TOTAL THREATS INDEXED</span><strong id="lab18Total">—</strong><small>Actual MongoDB collection count</small></div>
+   <div><span>MATCHED FILTER COUNT</span><strong id="lab18Matched" class="cyan">—</strong><small>Selected source and label</small></div>
+   <div><span>FALSE-POSITIVE CANDIDATES</span><strong id="lab18FP" class="amber">—</strong><small>Heuristic-labeled records</small></div>
+   <div><span>MEASURED FILTER LATENCY</span><strong id="lab18Latency" class="green">—</strong><small>One live query · not 10-run median</small></div>
+  </div>
+  <div class="lab18-scale"><div class="lab18-scalehead"><h4 id="lab18ScaleHeading">HORIZONTAL SCALING BLUEPRINT · 100M RECORDS</h4><span>PLANNING ESTIMATES · NOT BENCHMARKED</span></div><div class="lab18-blueprints"><article><b>MongoDB</b><span id="lab18MongoPlan">—</span></article><article><b>Cassandra</b><span id="lab18CassPlan">—</span></article><article><b>Neo4j</b><span id="lab18NeoPlan">—</span></article></div><p id="lab18ScaleAssumption" class="lab18-footnote"></p></div>
+  <div class="lab18-benchmark"><div class="lab18-bench-head"><h4>COMPARATIVE BENCHMARK · SAVED 10-RUN MEDIANS</h4><small id="lab18BenchSource">Reading benchmark.csv…</small></div><div class="lab18-tablewrap"><table><thead><tr><th>BENCHMARK QUERY</th><th>MONGODB</th><th>CASSANDRA</th><th>NEO4J</th><th>RECOMMENDED ACCESS PATTERN</th></tr></thead><tbody id="lab18BenchRows"><tr><td colspan="5">Load Lab 18 dataset analysis to view saved measurements.</td></tr></tbody></table></div><div class="lab18-footnote">Insert measurements describe a batch of 10 events; other rows are query latencies. Values are from saved benchmark results, not rerun on each page load.</div></div>
+  <div class="lab18-records"><h4>RECENT MATCHING THREATS</h4><div id="lab18RecordRows">Select Analyze 100K Dataset to retrieve real records.</div></div>
+  <div id="lab18Log" class="lab18-log">[Ready] Lab 18 reads synthetic threat records; no database records are modified.</div>
+ </section>
+ <section class="lab18-legacy"><h3>Lab 18 · Original experiments</h3><p>The original database-count, high-confidence and saved benchmark actions remain available below.</p><div id="lab18ExtraActions" class="experiment-actions"></div><pre id="lab18ExtraResult" class="lab18-log">Choose an original Lab 18 action.</pre></section>
+</div>
+
+<div id="genericView" class="module hidden"><div class="generic-grid"><div class="panel"><div class="bank-title"><div><h3 id="genericTitle">Live lab controls</h3><p id="genericSub">Run a database-backed experiment for this lab.</p></div><span class="live-badge">● LIVE ACTIONS</span></div><div id="forms"></div><div id="labActions" class="experiment-actions"></div><div class="terminal" id="genericResult">[Ready] Select an action. The result will come from the local backend.</div></div><div class="panel"><h3>Live Database Explorer</h3><div class="inline"><input id="searchDocs" placeholder="Search current collection..."/><button class="btn subtle" id="refreshDocs">Search ↻</button></div><div id="documentInfo" class="fine">No data loaded.</div><div class="table-scroll" id="documents"></div><p class="fine">Only allowlisted operations are available. Cluster prerequisites are checked instead of simulated.</p></div></div></div></section><footer>CTI SENTINEL · University NoSQL assessment · Synthetic educational data · Local Docker environment <a href="/models">Original Model Studio ↗</a></footer></div></main></div>
+<script src="/static/sentinel.js?v=lab18-20261122f"></script></body></html>
