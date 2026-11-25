@@ -816,6 +816,12 @@ def lab18_analytics(source: str = Query('all', max_length=64), community: str = 
 # Add-on: Appendix A AI Threat Advisor
 from advisor import router as advisor_router
 app.include_router(advisor_router)
+from local_scanner import router as local_scanner_router
+app.include_router(local_scanner_router)
+from remediation import router as remediation_router
+app.include_router(remediation_router)
+from remediation import router as remediation_router
+app.include_router(remediation_router)
 
 
 # Unified navigation landing page (keeps every existing lab and advisor route).
