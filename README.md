@@ -8,7 +8,7 @@ A consolidated academic repository for MongoDB laboratory experiments and the CT
 
 | Directory | Contents |
 | --- | --- |
-| [experiments](experiments/) | Chapter-wise index of the integrated demonstrations and standalone submission status |
+| [experiments](mini-project/experiments/) | Chapter-wise index of the integrated demonstrations and standalone submission status |
 | [mini-project](mini-project/) | Original CTI Sentinel application, Python backend, web interface, AI advisor and Docker configuration |
 | [reports](reports/) | Report submission checklist |
 | [Docker Hub links](DOCKER_HUB_LINKS.md) | User-provided container image link |
