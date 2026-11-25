@@ -1,0 +1,36 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+*.bak
+*.pem
+*.key
+*.crt
+*.log
+.DS_Store
+output/
+
+# Secrets
+.env
+.env.*
+!.env.example
+*secret*
+*credentials*
+*.pem
+*.key
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# Local databases and generated files
+data/
+logs/
+*.log
+*.sqlite
+*.db
