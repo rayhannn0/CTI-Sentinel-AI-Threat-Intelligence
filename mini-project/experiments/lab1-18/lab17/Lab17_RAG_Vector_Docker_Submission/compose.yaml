@@ -1,0 +1,28 @@
+name: lab17_rag
+services:
+  mongo:
+    image: mongo:7
+    ports:
+      - "127.0.0.1:27020:27017"
+    volumes:
+      - mongo_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 5s
+      timeout: 5s
+      retries: 24
+  app:
+    build: .
+    environment:
+      MONGO_URI: ${MONGO_URI:-mongodb://mongo:27017}
+      VOYAGE_API_KEY: ${VOYAGE_API_KEY:-}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      ATLAS_VECTOR_INDEX: ${ATLAS_VECTOR_INDEX:-threat_vector_index}
+    volumes:
+      - ./output:/workspace/output
+    depends_on:
+      mongo:
+        condition: service_healthy
+    command: ["sleep", "infinity"]
+volumes:
+  mongo_data:

@@ -1,0 +1,7 @@
+.env
+certs/
+output/
+*.zip
+__pycache__/
+*.pdf
+*.docx

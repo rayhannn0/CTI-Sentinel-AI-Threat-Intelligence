@@ -1,0 +1,11 @@
+ILLUSTRATIVE OUTPUT — actual values depend on your MongoDB run
+Existing SKU A matched: 1 upserted: False
+New SKU K upserted: True
+Bulk matched: 5
+Bulk modified: 5
+Bulk upserted: 0
+{'sku': 'A', 'stock': 25, 'is_active': True}
+{'sku': 'B', 'stock': 18, 'is_active': True}
+{'sku': 'C', 'stock': 14, 'is_active': True}
+{'sku': 'D', 'stock': 0, 'is_active': False}
+{'sku': 'E', 'stock': 0, 'is_active': False}

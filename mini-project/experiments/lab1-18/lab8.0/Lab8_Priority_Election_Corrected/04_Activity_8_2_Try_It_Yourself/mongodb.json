@@ -1,0 +1,9 @@
+{
+  "replica_set": "rs0",
+  "priority_strategy": {
+    "target_secondary": 3,
+    "other_secondary": 1,
+    "current_primary": 2
+  },
+  "note": "prediction is not guaranteed; election depends on member health and oplog freshness"
+}

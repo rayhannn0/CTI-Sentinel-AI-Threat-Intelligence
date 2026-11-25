@@ -1,0 +1,47 @@
+name: lab8_stable_submission
+services:
+  mongo1:
+    image: mongo:7.0
+    container_name: lab8stable-mongo1
+    command: ["mongod", "--replSet", "rs0", "--bind_ip_all", "--port", "27017"]
+    ports: ["127.0.0.1:27217:27017"]
+    volumes: ["lab8_mongo1:/data/db"]
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand({ping:1}).ok"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+  mongo2:
+    image: mongo:7.0
+    container_name: lab8stable-mongo2
+    command: ["mongod", "--replSet", "rs0", "--bind_ip_all", "--port", "27017"]
+    ports: ["127.0.0.1:27218:27017"]
+    volumes: ["lab8_mongo2:/data/db"]
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand({ping:1}).ok"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+  mongo3:
+    image: mongo:7.0
+    container_name: lab8stable-mongo3
+    command: ["mongod", "--replSet", "rs0", "--bind_ip_all", "--port", "27017"]
+    ports: ["127.0.0.1:27219:27017"]
+    volumes: ["lab8_mongo3:/data/db"]
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand({ping:1}).ok"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+  arbiter:
+    profiles: ["arbiter"]
+    image: mongo:7.0
+    container_name: lab8stable-arbiter
+    command: ["mongod", "--replSet", "rs0", "--bind_ip_all", "--port", "27017"]
+    ports: ["127.0.0.1:27220:27017"]
+    volumes: ["lab8_arbiter:/data/db"]
+volumes:
+  lab8_mongo1:
+  lab8_mongo2:
+  lab8_mongo3:
+  lab8_arbiter:

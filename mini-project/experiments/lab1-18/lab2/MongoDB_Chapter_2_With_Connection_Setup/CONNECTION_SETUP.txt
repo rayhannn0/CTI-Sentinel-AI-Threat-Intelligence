@@ -1,0 +1,38 @@
+MONGODB CONNECTION DETAILS
+
+A. LOCAL DOCKER CONNECTION
+The local connection string is:
+mongodb://localhost:27017
+
+Start MongoDB if needed:
+docker run -d --name mongodb-ch2 -p 27017:27017 mongo:7
+
+If the container already exists:
+docker start mongodb-ch2
+
+B. MONGODB ATLAS CONNECTION
+1. Sign in to https://cloud.mongodb.com/
+2. Open your project and cluster.
+3. Click Connect > Drivers.
+4. Select Python and copy the connection string.
+5. Replace <password> with your database user's password.
+6. Replace <username> if needed and ensure your current IP is allowed under Network Access.
+7. In the VS Code terminal, set it (keep the quotes):
+   export ATLAS_URI='mongodb+srv://YOUR_USERNAME:YOUR_PASSWORD@YOUR_CLUSTER/...'
+
+C. INSTALL PYTHON DRIVER
+python3 -m pip install pymongo
+
+D. TEST BOTH CONNECTIONS
+python3 mongodb_connection.py
+
+E. RUN ACTIVITIES
+Activity 2.1 scripts use ATLAS_URI and DOCKER_URI.
+Activity 2.2 scripts use MONGODB_URI; default is local Docker:
+export MONGODB_URI='mongodb://localhost:27017'
+To run Activity 2.2 against Atlas instead:
+export MONGODB_URI="$ATLAS_URI"
+
+SECURITY
+Do not share your Atlas password or commit a real .env file. The ZIP includes .env.example only.
+I cannot fill in your personal Atlas URI because it is unique to your cluster and requires your credentials.

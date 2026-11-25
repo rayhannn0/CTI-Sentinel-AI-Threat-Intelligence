@@ -1,0 +1,35 @@
+name: lab9_isolated
+services:
+  mongo1:
+    image: mongo:7.0
+    command: ["mongod", "--replSet", "rs9", "--bind_ip_all"]
+    ports: ["127.0.0.1:27317:27017"]
+    volumes: ["mongo1_data:/data/db"]
+    networks: [lab9net]
+  mongo2:
+    image: mongo:7.0
+    command: ["mongod", "--replSet", "rs9", "--bind_ip_all"]
+    ports: ["127.0.0.1:27318:27017"]
+    volumes: ["mongo2_data:/data/db"]
+    networks: [lab9net]
+  mongo3:
+    image: mongo:7.0
+    command: ["mongod", "--replSet", "rs9", "--bind_ip_all"]
+    ports: ["127.0.0.1:27319:27017"]
+    volumes: ["mongo3_data:/data/db"]
+    networks: [lab9net]
+  labrunner:
+    build: .
+    image: ${LAB9_IMAGE:-lab9-mongodb-assessment:latest}
+    working_dir: /app
+    volumes: ["./output:/app/output"]
+    environment:
+      MONGO_URI: mongodb://mongo1:27017,mongo2:27017,mongo3:27017/?replicaSet=rs9
+    networks: [lab9net]
+    profiles: [runner]
+volumes:
+  mongo1_data:
+  mongo2_data:
+  mongo3_data:
+networks:
+  lab9net:

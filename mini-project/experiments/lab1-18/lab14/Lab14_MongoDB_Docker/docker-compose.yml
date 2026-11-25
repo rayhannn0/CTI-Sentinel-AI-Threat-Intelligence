@@ -1,0 +1,48 @@
+name: lab14_mongodb
+services:
+  mongo:
+    image: mongo:7.0
+    restart: unless-stopped
+    ports: ["127.0.0.1:27817:27017"]
+    volumes: ["lab14_data:/data/db"]
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+  labrunner:
+    profiles: ["runner"]
+    image: lab14-mongodb-assessment:latest
+    build: .
+    depends_on:
+      mongo:
+        condition: service_healthy
+    environment:
+      MONGO_URI: mongodb://mongo:27017
+      MONITOR_INTERVAL_SECONDS: "30"
+      WEBHOOK_URL: ${WEBHOOK_URL:-}
+      BACKUP_ROOT: /app/backups
+      LOG_DIR: /app/logs
+      OUTPUT_DIR: /app/output
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - ./backups:/app/backups
+      - ./logs:/app/logs
+      - ./output:/app/output
+    command: ["python", "run_all.py"]
+  backup-scheduler:
+    profiles: ["scheduler"]
+    image: lab14-mongodb-assessment:latest
+    build: .
+    restart: unless-stopped
+    depends_on:
+      mongo:
+        condition: service_healthy
+    environment:
+      MONGO_URI: mongodb://mongo:27017
+      BACKUP_ROOT: /app/backups
+      PYTHONUNBUFFERED: "1"
+    volumes: ["./backups:/app/backups"]
+    command: ["python", "backup_scheduler.py"]
+volumes:
+  lab14_data:

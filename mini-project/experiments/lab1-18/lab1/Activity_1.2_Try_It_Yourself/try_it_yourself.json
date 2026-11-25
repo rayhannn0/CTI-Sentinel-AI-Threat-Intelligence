@@ -1,0 +1,31 @@
+{
+  "activity": "Activity 1.2 - Try It Yourself: Healthcare Management System",
+  "domains": [
+    {
+      "domain": "Patient profiles",
+      "family": "Document database (MongoDB)",
+      "reason": "A patient profile contains nested and evolving information such as demographics, allergies, contacts, and care preferences. A JSON document keeps related profile fields together."
+    },
+    {
+      "domain": "Appointment scheduling",
+      "family": "Key-value store (Redis) for short-lived availability/cache data; a transactional database should remain the source of truth",
+      "reason": "Fast key-based reads can show available appointment slots and temporarily hold a slot during booking. Final booking confirmation needs transactional consistency in the authoritative scheduling system."
+    },
+    {
+      "domain": "Medical observations and device readings",
+      "family": "Column-family store (Cassandra)",
+      "reason": "Large volumes of timestamped observations can be written continuously and queried by patient/device and time window when partition keys are designed for those access patterns."
+    },
+    {
+      "domain": "Care-team and referral relationships",
+      "family": "Graph database (Neo4j)",
+      "reason": "A graph can efficiently traverse relationships among patients, clinicians, departments, referrals, and care networks."
+    },
+    {
+      "domain": "Clinical documents and scans",
+      "family": "Object storage (Amazon S3; key-addressed object model)",
+      "reason": "Large files such as scans and reports are durable binary objects retrieved by object key, while metadata can be stored separately in a document database."
+    }
+  ],
+  "summary": "A healthcare platform is polyglot: use each NoSQL family for the access pattern it handles best, while applying strict access control, encryption, auditing, retention rules, and appropriate clinical governance to sensitive records."
+}

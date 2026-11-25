@@ -1,0 +1,32 @@
+[
+    {
+        "title": "The C Programming Language",
+        "author": "Kernighan and Ritchie",
+        "published_year": 1988,
+        "price": 500.0
+    },
+    {
+        "title": "Introduction to Algorithms",
+        "author": "Thomas H. Cormen et al.",
+        "published_year": 2009,
+        "price": 1200.0
+    },
+    {
+        "title": "The Linux Programming Interface",
+        "author": "Michael Kerrisk",
+        "published_year": 2010,
+        "price": 1400.0
+    },
+    {
+        "title": "Python for Data Analysis",
+        "author": "Wes McKinney",
+        "published_year": 2012,
+        "price": 900.0
+    },
+    {
+        "title": "Hands-On Machine Learning",
+        "author": "Aur\u00e9lien G\u00e9ron",
+        "published_year": 2017,
+        "price": 1250.0
+    }
+]

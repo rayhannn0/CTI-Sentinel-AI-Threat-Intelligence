@@ -1,0 +1,5 @@
+from common import ready,save,shards_stats
+c=ready();db=c.lab11
+result={'activity':'Activity 11.2','observed_hotspot_distribution':shards_stats(db,'hotspot_data'),'observed_hashed_distribution':shards_stats(db,'even_data'),'analysis':{'why_hotspot':'Increasing timestamp values target the highest-range chunk, concentrating new writes on its owning shard.','why_hash':'Hashed shard key randomizes key-space placement and spreads equality-keyed inserts across pre-split chunks.','range_tradeoff':'Ranged timestamp keys can target date windows efficiently; hashed keys do not efficiently target original-key range predicates.','when_ranged_is_useful':'Use when time-range queries dominate, insert throughput is manageable, or the shard key is compound/bucketed to mitigate hot writes.','caveat':'Balancing and automatic chunk splitting may change counts; verify observed results rather than relying on a fixed ratio.'}}
+for k,v in result['analysis'].items():print(k+':',v)
+save('activity_11_2.json',result)

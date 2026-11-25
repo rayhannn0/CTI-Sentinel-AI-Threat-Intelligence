@@ -1,0 +1,6 @@
+{
+  "database": "lab8",
+  "replica_set": "rs0",
+  "compass_uri": "mongodb://127.0.0.1:27217/?directConnection=true",
+  "note": "MongoDB JSON is a representative sample; real members and election results appear in run output."
+}

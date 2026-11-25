@@ -1,0 +1,14 @@
+{
+    "activity": "2.1",
+    "generated_at_utc": "2026-11-19T18:45:39.271056+00:00",
+    "servers": [
+        null,
+        {
+            "server": "Docker MongoDB",
+            "version": "8.0.38",
+            "gitVersion": "b2f7afe3a6838999fd375c7a7ea678189f795568",
+            "maxWireVersion": null,
+            "ok": 1.0
+        }
+    ]
+}

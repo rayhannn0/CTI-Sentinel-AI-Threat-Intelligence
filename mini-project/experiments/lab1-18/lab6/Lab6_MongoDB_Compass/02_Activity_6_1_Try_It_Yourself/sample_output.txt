@@ -1,0 +1,9 @@
+ILLUSTRATIVE / NOT LIVE MONGODB OUTPUT
+Index usage (ops since index creation):
+idx_category_price: (measured ops)
+idx_price:          (measured ops)
+idx_tags:           (measured ops)
+idx_rating_stock:   (measured ops)
+idx_name:           (measured ops)
+Most frequently used: (based on your local counts)
+Note: values change between runs.

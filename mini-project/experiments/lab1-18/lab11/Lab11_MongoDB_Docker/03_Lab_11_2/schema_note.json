@@ -1,0 +1,1 @@
+{"activity":"Lab 11.2","database":"lab11","collections":{"hotspot_data":{"shard_key":{"ts":1},"documents":10000},"even_data":{"shard_key":{"user_id":"hashed"},"documents":10000}},"output":"output/lab_11_2.json"}

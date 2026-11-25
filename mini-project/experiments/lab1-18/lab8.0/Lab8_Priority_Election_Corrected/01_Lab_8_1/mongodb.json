@@ -1,0 +1,10 @@
+{
+  "database": "lab8",
+  "collection": "replication_demo",
+  "sample_document": {
+    "_id": "lab8-replication-document",
+    "message": "Replicated hello from Lab 8.1",
+    "source": "<elected primary>"
+  },
+  "verification": "read matching _id on both secondary data-bearing nodes"
+}

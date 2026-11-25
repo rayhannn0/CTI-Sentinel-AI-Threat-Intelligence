@@ -1,0 +1,9 @@
+# Lab 17 architecture and accuracy notes
+
+**Lab 17.1:** Five short threat-intelligence descriptions are split into 100-word chunks with 20-word overlap. Each chunk is embedded into a vector and stored in MongoDB. Without a Voyage API key, the offline demonstration uses 384-dimensional hashing features and NumPy cosine retrieval; this is not an Atlas `$vectorSearch` operation or a trained semantic embedding model. Set `VOYAGE_API_KEY` and an Atlas URI, seed, create the displayed index, then use `--atlas` to execute actual Atlas `$vectorSearch`. If `OPENAI_API_KEY` is provided, the application uses an LLM; otherwise the response is explicitly an extractive demonstration, not LLM-generated. The conversation store includes the last ten individual messages (=five prior exchanges) in the LLM prompt.
+
+**Lab 17.2:** Current MongoDB documentation describes HNSW and flat vector indexing, not the requested IVF `indexOption` schema. An IVF-vs-HNSW experiment is therefore implemented in FAISS, with 5,000 synthetic 384-dimensional vectors and 100 queries; outputs are marked local FAISS rather than Atlas timings. HNSW `M`, `efSearch` and IVF `nlist`, `nprobe` are swept, and exact FAISS IndexFlatIP provides the recall baseline. Results vary by hardware. All benchmark parameters and limitations are reported. This is a functional, reproducible educational comparison but **does not fulfill literal Atlas IVF indexing**.
+
+MongoDB Atlas index definition: `python -m scripts.lab17_1 index-definition` after seeding, and create this vectorSearch index in Atlas using the returned definition. Dimensions must match whichever embedder you selected; do not switch embedding providers without reseeding. Atlas search deployment has its own feature requirements and potential usage charges.
+
+Security: do not commit secret keys; local MongoDB uses development-only defaults. Add authentication, input validation, and monitoring for production.

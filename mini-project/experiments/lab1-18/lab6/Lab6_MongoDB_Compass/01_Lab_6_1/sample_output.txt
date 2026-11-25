@@ -1,0 +1,11 @@
+ILLUSTRATIVE / NOT LIVE MONGODB OUTPUT
+Connected | Database: lab6 | Collection: lab_6_1_products
+Generated documents: 50000
+BEFORE indexes
+Category and price sort: stages=SORT,COLLSCAN | totalDocsExamined=50000
+Price range: stages=COLLSCAN | totalDocsExamined=50000
+AFTER indexes
+Category and price sort: stages=LIMIT,IXSCAN | totalDocsExamined=(varies)
+Price range: stages=FETCH,IXSCAN | totalDocsExamined=(varies)
+Indexes: _id_, idx_category_price, idx_price, idx_tags,
+         idx_rating_stock, idx_name

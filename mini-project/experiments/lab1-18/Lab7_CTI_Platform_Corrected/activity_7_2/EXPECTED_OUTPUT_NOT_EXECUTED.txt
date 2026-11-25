@@ -1,0 +1,2 @@
+Expected when run: 10-second cache samples; report discovery once per 60 seconds; Ctrl+C to stop.
+Exact values depend on your MongoDB server. This is not an execution screenshot.

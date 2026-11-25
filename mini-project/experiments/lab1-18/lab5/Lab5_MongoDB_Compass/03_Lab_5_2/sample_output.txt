@@ -1,0 +1,21 @@
+ILLUSTRATIVE EXPECTED OUTPUT — NOT CAPTURED FROM A RUNNING MONGODB SERVER
+
+Connected to MongoDB | Database: lab5
+Collections: lab_5_2_products (9), lab_5_2_orders (12)
+
+ORDER + PRODUCT JOIN:
+J001 | 2026-05-01 | Wireless Mouse | Qty: 1 | Total: $25.00
+J002 | 2026-05-02 | Mechanical Keyboard | Qty: 2 | Total: $160.00
+J003 | 2026-05-03 | USB Cable | Qty: 3 | Total: $36.00
+J004 | 2026-05-04 | Monitor | Qty: 1 | Total: $180.00
+J005 | 2026-05-05 | Headphones | Qty: 2 | Total: $130.00
+J006 | 2026-05-06 | Laptop Stand | Qty: 3 | Total: $120.00
+J007 | 2026-05-07 | Webcam | Qty: 1 | Total: $110.00
+J008 | 2026-05-08 | SSD Drive | Qty: 2 | Total: $260.00
+J009 | 2026-05-09 | Wireless Mouse | Qty: 3 | Total: $75.00
+J010 | 2026-05-10 | Mechanical Keyboard | Qty: 1 | Total: $80.00
+J011 | 2026-05-11 | USB Cable | Qty: 2 | Total: $24.00
+J012 | 2026-05-12 | Monitor | Qty: 3 | Total: $540.00
+
+PRODUCTS NEVER ORDERED:
+Unused Tablet Case (accessories)

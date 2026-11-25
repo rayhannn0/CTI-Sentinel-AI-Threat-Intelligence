@@ -1,0 +1,2 @@
+Expected when run: 100000 inserts, ~2KB BSON record size, cache counters and 3 random-read rounds.
+Exact values depend on your MongoDB server. This is not an execution screenshot.

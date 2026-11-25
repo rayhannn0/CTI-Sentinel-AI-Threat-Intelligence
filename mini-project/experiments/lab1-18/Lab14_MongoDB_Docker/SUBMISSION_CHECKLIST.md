@@ -1,0 +1,11 @@
+# Lab 14 Submission Checklist
+- [ ] Docker Desktop running and `mongo` healthy.
+- [ ] Runner image builds.
+- [ ] Lab 14.1 writes `logs/metrics.log` and shows metrics.
+- [ ] 1k, 10k and 100k backup/restore tests pass count and checksum verification.
+- [ ] `output/backup_benchmark.csv` generated.
+- [ ] Hourly scheduler starts and seven-day retention is active.
+- [ ] Optional webhook tested if configured.
+- [ ] Runner image pushed to Docker Hub.
+- [ ] Submission PDF generated with the actual Docker Hub URL.
+- [ ] `lab14` copied into main `localhost:27017` if required for Compass demonstration.

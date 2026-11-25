@@ -1,0 +1,5 @@
+ILLUSTRATIVE OUTPUT — actual values depend on your MongoDB run
+Search 'wireLESS': ['Wireless Mouse']
+Search 'PHONE': ['Bluetooth Headphones', 'Phone Charger']
+Search 'mouse': ['Wireless Mouse']
+Search 'does-not-exist': []

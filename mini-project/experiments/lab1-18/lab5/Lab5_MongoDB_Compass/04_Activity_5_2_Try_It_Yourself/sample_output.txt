@@ -1,0 +1,8 @@
+ILLUSTRATIVE EXPECTED OUTPUT — NOT CAPTURED FROM A RUNNING MONGODB SERVER
+
+Connected to MongoDB | Database: lab5
+Collections: activity_5_2_products, activity_5_2_orders
+
+PIPELINE $lookup: electronics products with base_price >= $50
+J007 | Webcam | Qty: 1 | Total: $110.00
+Matching orders: 1

@@ -1,0 +1,11 @@
+{
+  "replica_set": "rs0",
+  "steps": [
+    "identify original primary",
+    "step down for 20 seconds",
+    "wait for new elected primary",
+    "observe monitor reads reconnect"
+  ],
+  "database": "lab8",
+  "collection": "replication_demo"
+}

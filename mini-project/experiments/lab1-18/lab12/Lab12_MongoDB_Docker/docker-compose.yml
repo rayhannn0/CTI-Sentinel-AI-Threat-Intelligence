@@ -1,0 +1,39 @@
+
+name: lab12_security
+
+services:
+  mongo:
+    image: mongo:7.0
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:27617:27017"
+    volumes:
+      - mongo_data:/data/db
+      - ./certs:/certs:ro
+    command:
+      - bash
+      - -c
+      - >
+        cp /certs/server.pem /tmp/lab12-server.pem &&
+        chmod 600 /tmp/lab12-server.pem &&
+        exec mongod --bind_ip_all --auth
+        --tlsMode requireTLS
+        --tlsCertificateKeyFile /tmp/lab12-server.pem
+        --tlsCAFile /certs/ca.crt
+        --tlsAllowConnectionsWithoutCertificates
+
+  labrunner:
+    profiles: ["runner"]
+    image: lab12-mongodb-assessment:latest
+    build: .
+    depends_on: [mongo]
+    env_file: [.env]
+    environment:
+      PYTHONPATH: /app
+    volumes:
+      - ./output:/app/output
+      - ./certs:/app/certs:ro
+    command: ["python", "run_all.py"]
+
+volumes:
+  mongo_data:

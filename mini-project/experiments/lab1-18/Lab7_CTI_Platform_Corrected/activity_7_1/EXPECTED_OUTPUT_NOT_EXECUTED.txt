@@ -1,0 +1,2 @@
+Expected after seeding: 12 threat copies with embedded source snapshots, plus trade-off explanation.
+Exact values depend on your MongoDB server. This is not an execution screenshot.

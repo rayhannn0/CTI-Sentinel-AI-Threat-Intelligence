@@ -1,0 +1,10 @@
+[
+  {
+    "_id": "RPT-DEMO-1",
+    "title": "Demonstration Security Report Record",
+    "year": 2025,
+    "source_id": "SRC-002",
+    "url": "https://github.com/jacobdjwilson/awesome-annual-security-reports",
+    "data_origin": "synthetic_demo"
+  }
+]

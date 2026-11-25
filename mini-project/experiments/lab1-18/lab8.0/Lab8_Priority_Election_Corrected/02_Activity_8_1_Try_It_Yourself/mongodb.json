@@ -1,0 +1,6 @@
+{
+  "replica_set": "rs0",
+  "members": "3 data bearing + 1 arbiter",
+  "votes": "2 data votes + 1 arbiter vote; third data node nonvoting",
+  "note": "arbiter has no data collection; cannot be used for reads"
+}

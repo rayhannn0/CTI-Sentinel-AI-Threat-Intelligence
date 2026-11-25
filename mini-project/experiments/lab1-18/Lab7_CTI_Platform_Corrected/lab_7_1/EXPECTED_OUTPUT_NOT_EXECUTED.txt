@@ -1,0 +1,2 @@
+Expected after seeding: relationships and average/max BSON byte sizes printed from the live database.
+Exact values depend on your MongoDB server. This is not an execution screenshot.

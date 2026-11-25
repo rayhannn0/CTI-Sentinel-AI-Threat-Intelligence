@@ -1,0 +1,401 @@
+[
+  {
+    "_id": "THR-0001",
+    "title": "Credential phishing campaign targeting collaboration accounts",
+    "category": "phishing",
+    "platform": "Windows",
+    "severity": "high",
+    "status": "active",
+    "description": "Malicious login pages impersonate enterprise sign-in portals.",
+    "tags": [
+      "phishing",
+      "identity",
+      "credential"
+    ],
+    "mitigations": [
+      "MFA",
+      "User awareness",
+      "Block known malicious domains"
+    ],
+    "observables": [
+      {
+        "type": "domain",
+        "value": "example-threat-1.invalid"
+      }
+    ],
+    "source_ids": [
+      "SRC-002"
+    ],
+    "source_assessment": {
+      "classification": "unverified_demo",
+      "confidence": 0.2,
+      "reason": "Synthetic teaching example; not an independently verified incident"
+    },
+    "data_origin": "synthetic_demo",
+    "first_seen": "2026-01-15"
+  },
+  {
+    "_id": "THR-0002",
+    "title": "Suspicious macOS browser extension stealing session tokens",
+    "category": "infostealer",
+    "platform": "macOS",
+    "severity": "high",
+    "status": "evolving",
+    "description": "Untrusted extension requests excessive browser permissions.",
+    "tags": [
+      "browser",
+      "tokens"
+    ],
+    "mitigations": [
+      "Remove untrusted extensions",
+      "Revoke affected sessions"
+    ],
+    "observables": [
+      {
+        "type": "domain",
+        "value": "example-threat-2.invalid"
+      }
+    ],
+    "source_ids": [
+      "SRC-003"
+    ],
+    "source_assessment": {
+      "classification": "unverified_demo",
+      "confidence": 0.2,
+      "reason": "Synthetic teaching example; not an independently verified incident"
+    },
+    "data_origin": "synthetic_demo",
+    "first_seen": "2026-01-15"
+  },
+  {
+    "_id": "THR-0003",
+    "title": "Linux SSH brute-force activity against exposed services",
+    "category": "brute-force",
+    "platform": "Linux",
+    "severity": "medium",
+    "status": "active",
+    "description": "Repeated authentication attempts on internet-facing SSH.",
+    "tags": [
+      "ssh",
+      "authentication"
+    ],
+    "mitigations": [
+      "Disable password auth",
+      "Restrict ingress",
+      "Enable rate limits"
+    ],
+    "observables": [
+      {
+        "type": "domain",
+        "value": "example-threat-3.invalid"
+      }
+    ],
+    "source_ids": [
+      "SRC-001"
+    ],
+    "source_assessment": {
+      "classification": "unverified_demo",
+      "confidence": 0.2,
+      "reason": "Synthetic teaching example; not an independently verified incident"
+    },
+    "data_origin": "synthetic_demo",
+    "first_seen": "2026-01-15"
+  },
+  {
+    "_id": "THR-0004",
+    "title": "Android sideloaded banking trojan demonstration",
+    "category": "mobile-malware",
+    "platform": "Android",
+    "severity": "critical",
+    "status": "anticipated",
+    "description": "Illustrative unauthorized application requests accessibility permissions.",
+    "tags": [
+      "mobile",
+      "banking"
+    ],
+    "mitigations": [
+      "Only install trusted apps",
+      "Review permissions"
+    ],
+    "observables": [
+      {
+        "type": "domain",
+        "value": "example-threat-4.invalid"
+      }
+    ],
+    "source_ids": [
+      "SRC-002"
+    ],
+    "source_assessment": {
+      "classification": "unverified_demo",
+      "confidence": 0.2,
+      "reason": "Synthetic teaching example; not an independently verified incident"
+    },
+    "data_origin": "synthetic_demo",
+    "first_seen": "2026-01-15"
+  },
+  {
+    "_id": "THR-0005",
+    "title": "iOS targeted profile installation social engineering",
+    "category": "social-engineering",
+    "platform": "iOS",
+    "severity": "medium",
+    "status": "resolved",
+    "description": "Demo incident involving deceptive configuration profile links.",
+    "tags": [
+      "mobile",
+      "profile"
+    ],
+    "mitigations": [
+      "Remove untrusted profiles",
+      "Review device management"
+    ],
+    "observables": [
+      {
+        "type": "domain",
+        "value": "example-threat-5.invalid"
+      }
+    ],
+    "source_ids": [
+      "SRC-003"
+    ],
+    "source_assessment": {
+      "classification": "unverified_demo",
+      "confidence": 0.2,
+      "reason": "Synthetic teaching example; not an independently verified incident"
+    },
+    "data_origin": "synthetic_demo",
+    "first_seen": "2026-01-15"
+  },
+  {
+    "_id": "THR-0006",
+    "title": "Ransomware activity affecting backup repositories",
+    "category": "ransomware",
+    "platform": "Windows",
+    "severity": "critical",
+    "status": "active",
+    "description": "Demo ransomware scenario involving accessible backup shares.",
+    "tags": [
+      "ransomware",
+      "backup"
+    ],
+    "mitigations": [
+      "Isolate impacted assets",
+      "Verify offline backups"
+    ],
+    "observables": [
+      {
+        "type": "domain",
+        "value": "example-threat-6.invalid"
+      }
+    ],
+    "source_ids": [
+      "SRC-001"
+    ],
+    "source_assessment": {
+      "classification": "unverified_demo",
+      "confidence": 0.2,
+      "reason": "Synthetic teaching example; not an independently verified incident"
+    },
+    "data_origin": "synthetic_demo",
+    "first_seen": "2026-01-15"
+  },
+  {
+    "_id": "THR-0007",
+    "title": "Cloud API key exposure in sample repository",
+    "category": "credential-exposure",
+    "platform": "Cloud",
+    "severity": "high",
+    "status": "evolving",
+    "description": "A demo API secret accidentally committed to version control.",
+    "tags": [
+      "cloud",
+      "secrets"
+    ],
+    "mitigations": [
+      "Rotate credentials",
+      "Scan repositories"
+    ],
+    "observables": [
+      {
+        "type": "domain",
+        "value": "example-threat-7.invalid"
+      }
+    ],
+    "source_ids": [
+      "SRC-002"
+    ],
+    "source_assessment": {
+      "classification": "unverified_demo",
+      "confidence": 0.2,
+      "reason": "Synthetic teaching example; not an independently verified incident"
+    },
+    "data_origin": "synthetic_demo",
+    "first_seen": "2026-01-15"
+  },
+  {
+    "_id": "THR-0008",
+    "title": "Linux container image with outdated dependencies",
+    "category": "vulnerability",
+    "platform": "Linux",
+    "severity": "medium",
+    "status": "anticipated",
+    "description": "An illustrative container contains obsolete third-party libraries.",
+    "tags": [
+      "containers",
+      "supply-chain"
+    ],
+    "mitigations": [
+      "Rebuild patched image",
+      "Scan dependencies"
+    ],
+    "observables": [
+      {
+        "type": "domain",
+        "value": "example-threat-8.invalid"
+      }
+    ],
+    "source_ids": [
+      "SRC-003"
+    ],
+    "source_assessment": {
+      "classification": "unverified_demo",
+      "confidence": 0.2,
+      "reason": "Synthetic teaching example; not an independently verified incident"
+    },
+    "data_origin": "synthetic_demo",
+    "first_seen": "2026-01-15"
+  },
+  {
+    "_id": "THR-0009",
+    "title": "Email impersonation attempt against procurement",
+    "category": "business-email-compromise",
+    "platform": "Windows",
+    "severity": "high",
+    "status": "resolved",
+    "description": "Demo mail thread requests out-of-band payment changes.",
+    "tags": [
+      "email",
+      "fraud"
+    ],
+    "mitigations": [
+      "Verify change requests via phone",
+      "Enable DMARC"
+    ],
+    "observables": [
+      {
+        "type": "domain",
+        "value": "example-threat-9.invalid"
+      }
+    ],
+    "source_ids": [
+      "SRC-001"
+    ],
+    "source_assessment": {
+      "classification": "unverified_demo",
+      "confidence": 0.2,
+      "reason": "Synthetic teaching example; not an independently verified incident"
+    },
+    "data_origin": "synthetic_demo",
+    "first_seen": "2026-01-15"
+  },
+  {
+    "_id": "THR-0010",
+    "title": "Browser-based cryptomining script observed",
+    "category": "cryptomining",
+    "platform": "macOS",
+    "severity": "low",
+    "status": "resolved",
+    "description": "Illustrative script unexpectedly consumes endpoint resources.",
+    "tags": [
+      "browser",
+      "cryptomining"
+    ],
+    "mitigations": [
+      "Remove suspicious extensions",
+      "Update browser"
+    ],
+    "observables": [
+      {
+        "type": "domain",
+        "value": "example-threat-10.invalid"
+      }
+    ],
+    "source_ids": [
+      "SRC-002"
+    ],
+    "source_assessment": {
+      "classification": "unverified_demo",
+      "confidence": 0.2,
+      "reason": "Synthetic teaching example; not an independently verified incident"
+    },
+    "data_origin": "synthetic_demo",
+    "first_seen": "2026-01-15"
+  },
+  {
+    "_id": "THR-0011",
+    "title": "Web application SQL injection probing",
+    "category": "web-attack",
+    "platform": "Linux",
+    "severity": "high",
+    "status": "active",
+    "description": "Demo web service logs contain unusual SQL-like payloads.",
+    "tags": [
+      "web",
+      "application"
+    ],
+    "mitigations": [
+      "Use parameterized queries",
+      "Enable WAF rules"
+    ],
+    "observables": [
+      {
+        "type": "domain",
+        "value": "example-threat-11.invalid"
+      }
+    ],
+    "source_ids": [
+      "SRC-003"
+    ],
+    "source_assessment": {
+      "classification": "unverified_demo",
+      "confidence": 0.2,
+      "reason": "Synthetic teaching example; not an independently verified incident"
+    },
+    "data_origin": "synthetic_demo",
+    "first_seen": "2026-01-15"
+  },
+  {
+    "_id": "THR-0012",
+    "title": "Supply-chain compromise risk in package dependency",
+    "category": "supply-chain",
+    "platform": "Cloud",
+    "severity": "critical",
+    "status": "anticipated",
+    "description": "Illustrative dependency risk from an untrusted publisher.",
+    "tags": [
+      "packages",
+      "supply-chain"
+    ],
+    "mitigations": [
+      "Pin dependencies",
+      "Review provenance"
+    ],
+    "observables": [
+      {
+        "type": "domain",
+        "value": "example-threat-12.invalid"
+      }
+    ],
+    "source_ids": [
+      "SRC-001"
+    ],
+    "source_assessment": {
+      "classification": "unverified_demo",
+      "confidence": 0.2,
+      "reason": "Synthetic teaching example; not an independently verified incident"
+    },
+    "data_origin": "synthetic_demo",
+    "first_seen": "2026-01-15"
+  }
+]

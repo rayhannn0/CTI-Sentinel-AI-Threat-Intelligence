@@ -1,0 +1,10 @@
+ILLUSTRATIVE / NOT LIVE MONGODB OUTPUT
+Connected | Database: lab6 | Collection: lab_6_2_products
+Insert 10,000 with only _id index: (measured seconds)
+Five representative queries, no secondary indexes
+... 
+Insert 10,000 with five secondary indexes: (measured seconds)
+Write-time slowdown: (measured percent)
+Five queries with five indexes (20k docs)
+Five queries with only idx_category_price
+Indexes retained: _id_, idx_category_price

@@ -1,0 +1,156 @@
+{
+  "products": [
+    {
+      "_id": "P001",
+      "name": "Wireless Mouse",
+      "category": "electronics",
+      "base_price": 25
+    },
+    {
+      "_id": "P002",
+      "name": "Mechanical Keyboard",
+      "category": "accessories",
+      "base_price": 80
+    },
+    {
+      "_id": "P003",
+      "name": "USB Cable",
+      "category": "electronics",
+      "base_price": 12
+    },
+    {
+      "_id": "P004",
+      "name": "Monitor",
+      "category": "displays",
+      "base_price": 180
+    },
+    {
+      "_id": "P005",
+      "name": "Headphones",
+      "category": "audio",
+      "base_price": 65
+    },
+    {
+      "_id": "P006",
+      "name": "Laptop Stand",
+      "category": "accessories",
+      "base_price": 40
+    },
+    {
+      "_id": "P007",
+      "name": "Webcam",
+      "category": "electronics",
+      "base_price": 110
+    },
+    {
+      "_id": "P008",
+      "name": "SSD Drive",
+      "category": "storage",
+      "base_price": 130
+    },
+    {
+      "_id": "P009",
+      "name": "Unused Tablet Case",
+      "category": "accessories",
+      "base_price": 30
+    }
+  ],
+  "orders": [
+    {
+      "order_id": "J001",
+      "customer": "Arun",
+      "product_id": "P001",
+      "quantity": 1,
+      "order_date": "2026-05-01T12:00:00",
+      "status": "delivered"
+    },
+    {
+      "order_id": "J002",
+      "customer": "Priya",
+      "product_id": "P002",
+      "quantity": 2,
+      "order_date": "2026-05-02T12:00:00",
+      "status": "shipped"
+    },
+    {
+      "order_id": "J003",
+      "customer": "Rahul",
+      "product_id": "P003",
+      "quantity": 3,
+      "order_date": "2026-05-03T12:00:00",
+      "status": "pending"
+    },
+    {
+      "order_id": "J004",
+      "customer": "Sneha",
+      "product_id": "P004",
+      "quantity": 1,
+      "order_date": "2026-05-04T12:00:00",
+      "status": "delivered"
+    },
+    {
+      "order_id": "J005",
+      "customer": "Kavya",
+      "product_id": "P005",
+      "quantity": 2,
+      "order_date": "2026-05-05T12:00:00",
+      "status": "shipped"
+    },
+    {
+      "order_id": "J006",
+      "customer": "Jeevan",
+      "product_id": "P006",
+      "quantity": 3,
+      "order_date": "2026-05-06T12:00:00",
+      "status": "pending"
+    },
+    {
+      "order_id": "J007",
+      "customer": "Arun",
+      "product_id": "P007",
+      "quantity": 1,
+      "order_date": "2026-05-07T12:00:00",
+      "status": "delivered"
+    },
+    {
+      "order_id": "J008",
+      "customer": "Priya",
+      "product_id": "P008",
+      "quantity": 2,
+      "order_date": "2026-05-08T12:00:00",
+      "status": "shipped"
+    },
+    {
+      "order_id": "J009",
+      "customer": "Rahul",
+      "product_id": "P001",
+      "quantity": 3,
+      "order_date": "2026-05-09T12:00:00",
+      "status": "pending"
+    },
+    {
+      "order_id": "J010",
+      "customer": "Sneha",
+      "product_id": "P002",
+      "quantity": 1,
+      "order_date": "2026-05-10T12:00:00",
+      "status": "delivered"
+    },
+    {
+      "order_id": "J011",
+      "customer": "Kavya",
+      "product_id": "P003",
+      "quantity": 2,
+      "order_date": "2026-05-11T12:00:00",
+      "status": "shipped"
+    },
+    {
+      "order_id": "J012",
+      "customer": "Jeevan",
+      "product_id": "P004",
+      "quantity": 3,
+      "order_date": "2026-05-12T12:00:00",
+      "status": "pending"
+    }
+  ]
+}

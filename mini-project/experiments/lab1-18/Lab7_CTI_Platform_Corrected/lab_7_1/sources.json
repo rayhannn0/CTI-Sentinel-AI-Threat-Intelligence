@@ -1,0 +1,23 @@
+[
+  {
+    "_id": "SRC-001",
+    "name": "CTI Digest",
+    "url": "https://ctidigest.com/",
+    "kind": "aggregator",
+    "verification": "reference_only"
+  },
+  {
+    "_id": "SRC-002",
+    "name": "Awesome Annual Security Reports",
+    "url": "https://github.com/jacobdjwilson/awesome-annual-security-reports",
+    "kind": "report_index",
+    "verification": "reference_only"
+  },
+  {
+    "_id": "SRC-003",
+    "name": "Internal Demo Sensor",
+    "url": null,
+    "kind": "synthetic",
+    "verification": "demo_only"
+  }
+]

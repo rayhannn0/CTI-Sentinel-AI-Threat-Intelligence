@@ -1,0 +1,5 @@
+{
+  "database": "lab9",
+  "collection": "partition_writes",
+  "note": "Recovery summary saved to output/activity_9_2.json."
+}

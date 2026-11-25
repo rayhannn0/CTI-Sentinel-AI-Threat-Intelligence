@@ -1,0 +1,26 @@
+services:
+  mongo:
+    image: mongo:7
+    ports:
+      - "127.0.0.1:27018:27017"
+    volumes:
+      - mongo_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 5s
+      retries: 20
+
+  api:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      MONGO_URI: mongodb://mongo:27017
+      JWT_SECRET: ${JWT_SECRET:-local-lab15-secret-change-me}
+      RATE_LIMIT: 60
+    depends_on:
+      mongo:
+        condition: service_healthy
+
+volumes:
+  mongo_data:

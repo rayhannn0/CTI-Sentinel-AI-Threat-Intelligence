@@ -1,0 +1,12 @@
+.env
+keyfile
+certs/
+*.key
+*.pem
+.git/
+__pycache__/
+output/
+*.docx
+*.pdf
+*.zip
+.DS_Store

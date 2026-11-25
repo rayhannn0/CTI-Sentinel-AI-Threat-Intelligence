@@ -1,0 +1,10 @@
+{
+    "description": "Output is generated at runtime by try_it_yourself.py.",
+    "comparison_fields": [
+        "version",
+        "maxWireVersion",
+        "minWireVersion",
+        "storageEngines"
+    ],
+    "output_file": "activity_2_1_try_output.json"
+}

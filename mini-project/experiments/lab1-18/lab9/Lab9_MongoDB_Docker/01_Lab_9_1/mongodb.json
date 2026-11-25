@@ -1,0 +1,11 @@
+{
+  "database": "lab9",
+  "collection_pattern": "write_concern_*",
+  "fields": {
+    "experiment": "w1",
+    "sequence": 0,
+    "payload": "example",
+    "created_utc": 0
+  },
+  "note": "Actual collection data populated when Python scripts run."
+}

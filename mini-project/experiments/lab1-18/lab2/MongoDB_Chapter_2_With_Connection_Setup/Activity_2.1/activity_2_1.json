@@ -1,0 +1,6 @@
+{
+    "description": "Output is generated at runtime by activity_2_1.py.",
+    "atlas_connection": "Set environment variable ATLAS_URI; do not put credentials in this file.",
+    "docker_connection": "mongodb://localhost:27017",
+    "output_file": "activity_2_1_output.json"
+}

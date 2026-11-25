@@ -1,0 +1,242 @@
+[
+  {
+    "sku": "SAMPLE-3-001",
+    "name": "Electronics Product 000000",
+    "category": "Electronics",
+    "price": 326.05,
+    "rating": 2.5,
+    "stock": 7,
+    "tags": [
+      "popular",
+      "portable"
+    ]
+  },
+  {
+    "sku": "SAMPLE-3-002",
+    "name": "Books Product 000001",
+    "category": "Books",
+    "price": 243.11,
+    "rating": 2.5,
+    "stock": 2,
+    "tags": [
+      "premium",
+      "popular"
+    ]
+  },
+  {
+    "sku": "SAMPLE-3-003",
+    "name": "Home Product 000002",
+    "category": "Home",
+    "price": 564.26,
+    "rating": 3.1,
+    "stock": 0,
+    "tags": [
+      "portable",
+      "wireless"
+    ]
+  },
+  {
+    "sku": "SAMPLE-3-004",
+    "name": "Fitness Product 000003",
+    "category": "Fitness",
+    "price": 739.49,
+    "rating": 4.9,
+    "stock": 3,
+    "tags": [
+      "wireless",
+      "popular"
+    ]
+  },
+  {
+    "sku": "SAMPLE-3-005",
+    "name": "Fashion Product 000004",
+    "category": "Fashion",
+    "price": 433.55,
+    "rating": 2.4,
+    "stock": 246,
+    "tags": [
+      "premium",
+      "sale"
+    ]
+  },
+  {
+    "sku": "SAMPLE-3-006",
+    "name": "Grocery Product 000005",
+    "category": "Grocery",
+    "price": 852.94,
+    "rating": 4.0,
+    "stock": 159,
+    "tags": [
+      "sale",
+      "wireless"
+    ]
+  },
+  {
+    "sku": "SAMPLE-3-007",
+    "name": "Electronics Product 000006",
+    "category": "Electronics",
+    "price": 429.16,
+    "rating": 2.5,
+    "stock": 96,
+    "tags": [
+      "popular",
+      "premium"
+    ]
+  },
+  {
+    "sku": "SAMPLE-3-008",
+    "name": "Books Product 000007",
+    "category": "Books",
+    "price": 321.01,
+    "rating": 5.0,
+    "stock": 142,
+    "tags": [
+      "premium",
+      "popular"
+    ]
+  },
+  {
+    "sku": "SAMPLE-3-009",
+    "name": "Home Product 000008",
+    "category": "Home",
+    "price": 221.44,
+    "rating": 4.6,
+    "stock": 184,
+    "tags": [
+      "sale",
+      "portable"
+    ]
+  },
+  {
+    "sku": "SAMPLE-3-010",
+    "name": "Fitness Product 000009",
+    "category": "Fitness",
+    "price": 270.56,
+    "rating": 3.1,
+    "stock": 205,
+    "tags": [
+      "sale",
+      "premium"
+    ]
+  },
+  {
+    "sku": "SAMPLE-3-011",
+    "name": "Fashion Product 000010",
+    "category": "Fashion",
+    "price": 531.02,
+    "rating": 3.4,
+    "stock": 138,
+    "tags": [
+      "premium",
+      "wireless"
+    ]
+  },
+  {
+    "sku": "SAMPLE-3-012",
+    "name": "Grocery Product 000011",
+    "category": "Grocery",
+    "price": 63.33,
+    "rating": 4.2,
+    "stock": 125,
+    "tags": [
+      "portable",
+      "premium"
+    ]
+  },
+  {
+    "sku": "SAMPLE-3-013",
+    "name": "Electronics Product 000012",
+    "category": "Electronics",
+    "price": 663.03,
+    "rating": 4.2,
+    "stock": 167,
+    "tags": [
+      "sale",
+      "portable"
+    ]
+  },
+  {
+    "sku": "SAMPLE-3-014",
+    "name": "Books Product 000013",
+    "category": "Books",
+    "price": 699.79,
+    "rating": 4.0,
+    "stock": 194,
+    "tags": [
+      "premium",
+      "popular"
+    ]
+  },
+  {
+    "sku": "SAMPLE-3-015",
+    "name": "Home Product 000014",
+    "category": "Home",
+    "price": 473.5,
+    "rating": 4.6,
+    "stock": 221,
+    "tags": [
+      "sale",
+      "wireless"
+    ]
+  },
+  {
+    "sku": "SAMPLE-3-016",
+    "name": "Fitness Product 000015",
+    "category": "Fitness",
+    "price": 752.51,
+    "rating": 3.8,
+    "stock": 197,
+    "tags": [
+      "sale",
+      "wireless"
+    ]
+  },
+  {
+    "sku": "SAMPLE-3-017",
+    "name": "Fashion Product 000016",
+    "category": "Fashion",
+    "price": 522.71,
+    "rating": 3.7,
+    "stock": 58,
+    "tags": [
+      "popular",
+      "wireless"
+    ]
+  },
+  {
+    "sku": "SAMPLE-3-018",
+    "name": "Grocery Product 000017",
+    "category": "Grocery",
+    "price": 13.5,
+    "rating": 4.5,
+    "stock": 188,
+    "tags": [
+      "portable",
+      "sale"
+    ]
+  },
+  {
+    "sku": "SAMPLE-3-019",
+    "name": "Electronics Product 000018",
+    "category": "Electronics",
+    "price": 386.4,
+    "rating": 4.8,
+    "stock": 195,
+    "tags": [
+      "wireless",
+      "sale"
+    ]
+  },
+  {
+    "sku": "SAMPLE-3-020",
+    "name": "Books Product 000019",
+    "category": "Books",
+    "price": 803.22,
+    "rating": 2.3,
+    "stock": 206,
+    "tags": [
+      "sale",
+      "popular"
+    ]
+  }
+]

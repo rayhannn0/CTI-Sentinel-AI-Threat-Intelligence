@@ -1,0 +1,8 @@
+ILLUSTRATIVE / NOT LIVE MONGODB OUTPUT
+Covered query: {'category': 'Electronics'}
+projection: {'_id': 0, 'category': 1, 'price': 1}
+stages=PROJECTION_COVERED,IXSCAN | totalDocsExamined=0
+FETCH stage eliminated: True
+totalDocsExamined == 0: True
+PASS: Index covers filter, sort, and projection.
+Actual output depends on server query optimizer.

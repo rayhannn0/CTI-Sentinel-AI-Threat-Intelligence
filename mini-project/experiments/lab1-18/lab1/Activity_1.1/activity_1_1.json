@@ -1,0 +1,40 @@
+{
+  "activity": "Activity 1.1 - Classify Database Products",
+  "products": [
+    {
+      "product": "Amazon S3",
+      "family": "Key-value / object storage",
+      "reason": "Objects are stored and retrieved using a unique object key; S3 is more precisely object storage, often grouped with key-based access patterns.",
+      "best_for": "Durable storage of images, backups, documents, and data-lake files addressed by object key.",
+      "limitation": "It is not designed for low-latency updates to individual fields or rich queries over object contents."
+    },
+    {
+      "product": "Couchbase",
+      "family": "Document database",
+      "reason": "It stores JSON documents and supports indexes and queries over document fields.",
+      "best_for": "Flexible user profiles, product catalogs, and application records with nested or evolving fields.",
+      "limitation": "Complex relational joins and strongly relational workloads are less natural than in an RDBMS."
+    },
+    {
+      "product": "Apache HBase",
+      "family": "Column-family database",
+      "reason": "It organizes sparse data into column families and is designed for very large, wide tables.",
+      "best_for": "High-volume event, telemetry, or time-series records where access is designed around row keys.",
+      "limitation": "It requires careful row-key and schema design and is not suited to ad-hoc joins or arbitrary SQL-style queries."
+    },
+    {
+      "product": "Amazon Neptune",
+      "family": "Graph database",
+      "reason": "It is designed for connected data and supports graph query languages such as Gremlin and openCypher, plus RDF/SPARQL.",
+      "best_for": "Fraud detection, recommendation relationships, knowledge graphs, and network analysis.",
+      "limitation": "It is less appropriate for simple key lookups or workloads that do not need relationship traversal."
+    },
+    {
+      "product": "Memcached",
+      "family": "Key-value store",
+      "reason": "It stores values under string keys and retrieves them by key without querying the internal value fields.",
+      "best_for": "In-memory caching of sessions, page fragments, and frequently requested computed results.",
+      "limitation": "It is an ephemeral cache, not durable primary storage, and cached values can be evicted."
+    }
+  ]
+}

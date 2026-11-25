@@ -1,0 +1,71 @@
+
+name: lab13_replicaset
+
+x-mongo-base: &mongo-base
+  image: mongo:7.0
+  restart: unless-stopped
+  volumes:
+    - ./keyfile:/run/secrets/mongo-keyfile:ro
+  entrypoint: ["bash", "-ec"]
+  command:
+    - |
+      cp /run/secrets/mongo-keyfile /tmp/mongodb-keyfile
+      chown mongodb:mongodb /tmp/mongodb-keyfile
+      chmod 400 /tmp/mongodb-keyfile
+      exec gosu mongodb mongod --replSet rs13 --bind_ip_all --auth --keyFile /tmp/mongodb-keyfile --port 27017
+
+services:
+  mongo1:
+    <<: *mongo-base
+    hostname: mongo1
+    ports:
+      - "127.0.0.1:27717:27017"
+    volumes:
+      - mongo1data:/data/db
+      - ./keyfile:/run/secrets/mongo-keyfile:ro
+
+  mongo2:
+    <<: *mongo-base
+    hostname: mongo2
+    volumes:
+      - mongo2data:/data/db
+      - ./keyfile:/run/secrets/mongo-keyfile:ro
+
+  mongo3:
+    <<: *mongo-base
+    hostname: mongo3
+    volumes:
+      - mongo3data:/data/db
+      - ./keyfile:/run/secrets/mongo-keyfile:ro
+
+  labrunner:
+    profiles: ["runner"]
+    image: lab13-mongodb-assessment:latest
+    build: .
+    depends_on:
+      - mongo1
+      - mongo2
+      - mongo3
+    env_file:
+      - .env
+    environment:
+      PYTHONPATH: /app
+    volumes:
+      - ./output:/app/output
+    command: ["python", "run_all.py"]
+
+  mongodb-exporter:
+    profiles: ["monitoring"]
+    image: percona/mongodb_exporter:0.40.0
+    depends_on:
+      - mongo1
+    environment:
+      MONGODB_URI: "mongodb://lab13_admin:${ROOT_PASSWORD}@mongo1:27017/admin?authSource=admin&directConnection=true"
+    command: ["--collect-all", "--compatible-mode"]
+    ports:
+      - "127.0.0.1:29216:9216"
+
+volumes:
+  mongo1data:
+  mongo2data:
+  mongo3data:

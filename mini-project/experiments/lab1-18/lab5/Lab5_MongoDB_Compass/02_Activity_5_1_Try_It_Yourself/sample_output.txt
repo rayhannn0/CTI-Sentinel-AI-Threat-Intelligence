@@ -1,0 +1,8 @@
+ILLUSTRATIVE EXPECTED OUTPUT — NOT CAPTURED FROM A RUNNING MONGODB SERVER
+
+Connected to MongoDB | Database: lab5 | Collection: activity_5_1_buckets
+
+ORDER BUCKETS:
+Small (under $50): 6 orders | Combined value: $183.00 | IDs: O001, O007, O009, O015, O017, O023
+Medium ($50-$200): 6 orders | Combined value: $675.00 | IDs: O005, O008, O013, O016, O021, O024
+Large (over $200): 12 orders | Combined value: $3810.00 | IDs: O002, O003, O004, O006, O010, O011, O012, O014, O018, O019, O020, O022

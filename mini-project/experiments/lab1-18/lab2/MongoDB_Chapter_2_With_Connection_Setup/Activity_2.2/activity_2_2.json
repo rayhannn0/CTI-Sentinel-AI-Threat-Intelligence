@@ -1,0 +1,38 @@
+[
+    {
+        "title": "Database Systems",
+        "author": "Raghu Ramakrishnan",
+        "published_year": 2002,
+        "price": 650.0
+    },
+    {
+        "title": "Learning Python",
+        "author": "Mark Lutz",
+        "published_year": 2008,
+        "price": 850.0
+    },
+    {
+        "title": "Clean Code",
+        "author": "Robert C. Martin",
+        "published_year": 2008,
+        "price": 720.0
+    },
+    {
+        "title": "Fluent Python",
+        "author": "Luciano Ramalho",
+        "published_year": 2015,
+        "price": 950.0
+    },
+    {
+        "title": "Designing Data-Intensive Applications",
+        "author": "Martin Kleppmann",
+        "published_year": 2017,
+        "price": 1100.0
+    },
+    {
+        "title": "Python Crash Course",
+        "author": "Eric Matthes",
+        "published_year": 2019,
+        "price": 780.0
+    }
+]

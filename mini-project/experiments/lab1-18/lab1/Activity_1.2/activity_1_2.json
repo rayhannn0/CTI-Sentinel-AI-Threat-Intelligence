@@ -1,0 +1,35 @@
+{
+  "activity": "Activity 1.2 - Ride-sharing and social media analytics",
+  "ride_sharing": [
+    {
+      "domain": "Driver locations",
+      "family": "Key-value store (Redis)",
+      "reason": "The latest location can be overwritten frequently and retrieved quickly using a driver ID as the key."
+    },
+    {
+      "domain": "User profiles",
+      "family": "Document database (MongoDB)",
+      "reason": "A profile is a self-contained JSON document with nested attributes such as contact details, preferences, and saved locations."
+    },
+    {
+      "domain": "Ride history",
+      "family": "Column-family store (Cassandra) or document database",
+      "reason": "Ride records are append-heavy and commonly queried by rider or driver and time range; Cassandra scales well for predictable high-volume partition-key queries."
+    },
+    {
+      "domain": "Driver-rider relationship graph",
+      "family": "Graph database (Neo4j)",
+      "reason": "Graph traversal efficiently explores connections such as referrals, shared rides, communities, and suspicious relationship patterns."
+    }
+  ],
+  "social_analytics": {
+    "raw_post_storage": {
+      "family": "Column-family store (Cassandra)",
+      "reason": "It supports high write throughput and partitioned time-oriented access for large streams of posts."
+    },
+    "real_time_analytics": {
+      "family": "Key-value store (Redis), backed by durable analytics storage",
+      "reason": "In-memory counters, sorted sets, and cached aggregates can update quickly to rank trending topics and serve dashboards."
+    }
+  }
+}

@@ -1,0 +1,13 @@
+[
+    null,
+    {
+        "server": "Docker",
+        "version": "8.0.38",
+        "maxWireVersion": null,
+        "minWireVersion": null,
+        "storageEngines": [
+            "devnull",
+            "wiredTiger"
+        ]
+    }
+]

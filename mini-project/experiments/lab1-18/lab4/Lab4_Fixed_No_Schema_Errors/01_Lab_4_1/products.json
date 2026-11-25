@@ -1,0 +1,114 @@
+[
+  {
+    "sku": "A",
+    "name": "Wireless Mouse",
+    "price": 29.99,
+    "stock": 15,
+    "tags": [
+      "electronics",
+      "wireless"
+    ],
+    "is_active": true
+  },
+  {
+    "sku": "B",
+    "name": "Bluetooth Headphones",
+    "price": 109.99,
+    "stock": 8,
+    "tags": [
+      "electronics",
+      "wireless",
+      "premium"
+    ],
+    "is_active": true
+  },
+  {
+    "sku": "C",
+    "name": "USB Keyboard",
+    "price": 39.5,
+    "stock": 4,
+    "tags": [
+      "electronics",
+      "accessories"
+    ],
+    "is_active": true
+  },
+  {
+    "sku": "D",
+    "name": "Gaming Monitor",
+    "price": 249.0,
+    "stock": 0,
+    "tags": [
+      "electronics",
+      "premium"
+    ],
+    "is_active": true
+  },
+  {
+    "sku": "E",
+    "name": "Desk Lamp",
+    "price": 24.0,
+    "stock": 0,
+    "tags": [
+      "home",
+      "lighting"
+    ],
+    "is_active": true
+  },
+  {
+    "sku": "F",
+    "name": "Laptop Stand",
+    "price": 45.0,
+    "stock": 12,
+    "tags": [
+      "office",
+      "premium"
+    ],
+    "is_active": true
+  },
+  {
+    "sku": "G",
+    "name": "Notebook",
+    "price": 8.5,
+    "stock": 30,
+    "tags": [
+      "office",
+      "stationery"
+    ],
+    "is_active": true
+  },
+  {
+    "sku": "H",
+    "name": "Smartwatch",
+    "price": 149.0,
+    "stock": 6,
+    "tags": [
+      "electronics",
+      "wireless",
+      "premium"
+    ],
+    "is_active": true
+  },
+  {
+    "sku": "I",
+    "name": "Water Bottle",
+    "price": 22.0,
+    "stock": 25,
+    "tags": [
+      "fitness",
+      "accessories"
+    ],
+    "is_active": true
+  },
+  {
+    "sku": "J",
+    "name": "Phone Charger",
+    "price": 19.99,
+    "stock": 11,
+    "tags": [
+      "electronics",
+      "accessories"
+    ],
+    "is_active": true
+  }
+]

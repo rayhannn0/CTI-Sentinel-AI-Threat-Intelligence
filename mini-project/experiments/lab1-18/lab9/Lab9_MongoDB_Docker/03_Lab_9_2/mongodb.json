@@ -1,0 +1,10 @@
+{
+  "database": "lab9",
+  "collection": "partition_writes",
+  "fields": {
+    "scenario": "one_secondary_isolated",
+    "w": "majority",
+    "at": 0
+  },
+  "note": "Actual successes and failures depend on election/partition timing."
+}

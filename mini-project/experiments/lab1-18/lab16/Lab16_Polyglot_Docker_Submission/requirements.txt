@@ -1,0 +1,4 @@
+pymongo>=4.7,<5
+cassandra-driver>=3.29,<4
+neo4j>=5.23,<7
+pytest>=8,<10

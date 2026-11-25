@@ -1,0 +1,5 @@
+.env
+keyfile
+output/*.json
+__pycache__/
+.DS_Store

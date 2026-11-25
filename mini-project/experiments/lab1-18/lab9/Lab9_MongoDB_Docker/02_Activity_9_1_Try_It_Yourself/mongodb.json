@@ -1,0 +1,5 @@
+{
+  "database": "lab9",
+  "collection_pattern": "write_concern_*_jtrue/jfalse",
+  "note": "Run six tested concern/journal combinations. Output written to output/activity_9_1.json."
+}

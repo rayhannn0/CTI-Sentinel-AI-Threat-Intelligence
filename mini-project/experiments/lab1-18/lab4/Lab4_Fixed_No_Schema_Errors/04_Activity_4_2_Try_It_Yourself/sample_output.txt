@@ -1,0 +1,4 @@
+ILLUSTRATIVE OUTPUT — actual values depend on your MongoDB run
+First import: upserted 10 total 10
+Second import: upserted 0 modified 0 total 10
+PASS: repeated imports create no duplicate SKU records

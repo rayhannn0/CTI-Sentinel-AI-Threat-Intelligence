@@ -1,0 +1,23 @@
+ILLUSTRATIVE EXPECTED OUTPUT — NOT CAPTURED FROM A RUNNING MONGODB SERVER
+
+Connected to MongoDB | Database: lab5 | Collection: lab_5_1_orders
+Inserted orders: 24
+
+MONTHLY REVENUE (all statuses):
+2026-01 | Revenue: $1035.00 | Orders: 4
+2026-02 | Revenue: $521.00 | Orders: 4
+2026-03 | Revenue: $1035.00 | Orders: 4
+2026-04 | Revenue: $521.00 | Orders: 4
+2026-05 | Revenue: $1035.00 | Orders: 4
+2026-06 | Revenue: $521.00 | Orders: 4
+
+TOP 3 CUSTOMERS:
+Jeevan: $1100.00 | Products: Laptop Stand, Mechanical Keyboard, Monitor, SSD Drive
+Priya: $1100.00 | Products: Laptop Stand, Mechanical Keyboard, Monitor, SSD Drive
+Sneha: $1100.00 | Products: Laptop Stand, Mechanical Keyboard, Monitor, SSD Drive
+
+AVERAGE ORDER VALUE BY STATUS:
+cancelled: $240.00 (6 orders)
+delivered: $45.00 (6 orders)
+pending: $310.00 (6 orders)
+shipped: $183.00 (6 orders)

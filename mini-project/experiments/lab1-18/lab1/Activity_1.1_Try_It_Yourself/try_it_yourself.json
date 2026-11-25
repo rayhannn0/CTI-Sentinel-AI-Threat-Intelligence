@@ -1,0 +1,11 @@
+{
+  "activity": "Activity 1.1 - Try It Yourself",
+  "product": {
+    "name": "ArangoDB",
+    "family": "Multi-model database (document + graph + key-value-style access)",
+    "classification": "ArangoDB does not fit neatly into only one NoSQL family. It is multi-model: it stores JSON-like documents, models graph vertices and edges, and supports key-based document access.",
+    "best_for": "Applications such as a commerce platform that needs flexible product documents and connected data such as recommendations or product relationships.",
+    "limitation": "A multi-model system adds operational and data-modeling complexity; a specialist database may be simpler when only one access pattern is needed.",
+    "reason": "Its document collections, graph capabilities, and key-based document retrieval span more than one NoSQL model."
+  }
+}

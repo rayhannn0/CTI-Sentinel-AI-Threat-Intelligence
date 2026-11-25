@@ -1,0 +1,32 @@
+CONNECT TO MONGODB AND GENERATE OUTPUT FILES
+
+1. Install PyMongo:
+   python3 -m pip install pymongo
+
+2. Start local MongoDB using Docker:
+   docker run -d --name mongodb-ch2 -p 27017:27017 mongo:7
+   If the container already exists but is stopped:
+   docker start mongodb-ch2
+
+3. Set Atlas URI in the VS Code terminal:
+   export ATLAS_URI='mongodb+srv://USERNAME:PASSWORD@CLUSTER/...'
+   Do not paste your real password into source code or submit it.
+
+4. Run Activity 2.1 scripts from their folders:
+   python3 activity_2_1.py
+   python3 try_it_yourself.py
+   These connect to Atlas and localhost Docker and save server results in that folder's outputs/ directory.
+
+5. Run Activity 2.2 scripts:
+   python3 activity_2_2.py
+   python3 try_it_yourself.py
+   They connect to local Docker by default. To use Atlas instead:
+   export MONGODB_URI="$ATLAS_URI"
+
+6. Open MongoDB Compass and connect to:
+   mongodb://localhost:27017
+   Activity 2.2 database: chapter2_library, collection: books
+   Try-it-yourself database: chapter2_library_try, collection: books
+
+IMPORTANT:
+The outputs/ folders are created and ready, but the result JSON files are generated only after a successful connection and execution on your machine. A valid Atlas URI and a running Docker MongoDB instance are required.

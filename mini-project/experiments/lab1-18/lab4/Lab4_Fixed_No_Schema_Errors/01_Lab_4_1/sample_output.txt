@@ -1,0 +1,10 @@
+ILLUSTRATIVE OUTPUT — actual values depend on your MongoDB run
+Inserted: 10
+Price between 20 and 50 inclusive:
+['Desk Lamp', 'Laptop Stand', 'USB Keyboard', 'Water Bottle', 'Wireless Mouse']
+Out of stock:
+['Desk Lamp', 'Gaming Monitor']
+Both electronics and wireless:
+['Bluetooth Headphones', 'Smartwatch', 'Wireless Mouse']
+Exactly two tags:
+['Desk Lamp', 'Gaming Monitor', 'Laptop Stand', 'Notebook', 'Phone Charger', 'USB Keyboard', 'Water Bottle', 'Wireless Mouse']
